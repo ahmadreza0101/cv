@@ -4,17 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio profesional Reza Ahmad Al Ghifari - Web Developer, Digital Marketing, dan Desain Grafis berbasis di Tangerang.">
     <title>Reza Ahmad Al Ghifari | Portfolio</title>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <!-- 1. Prakoneksi ke API Iconify (Menghemat ~310 md LCP) -->
+    <!-- Koneksi Awal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.iconify.design">
 
+    <!-- Preload Aset Penting -->
+    <link rel="preload" as="image" href="foto_profil.webp">
+
+    <!-- Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js" defer></script>
+    
+    <!-- Tailwind Configuration -->
     <script>
+
+   
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -23,28 +34,30 @@
                 }
             }
         }
+        
     </script>
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        /* 4. Mencegah FOUC (Flash of Unstyled Content) saat mode gelap dimuat */
+        .dark body { background-color: #111827; color: #e5e7eb; }
+        
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
 
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
+            html { scroll-behavior: auto; }
         }
+
+        /* 5. Optimasi khusus untuk tombol toggle dan hamburger agar tidak bergetar */
+        #darkToggle, #menuBtn { min-width: 40px; min-height: 40px; }
+
+        /* 5. Inline CSS Kritis untuk mencegah Layout Shift */
+        body { font-family: 'Inter', sans-serif; min-height: 100vh; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif;  display: block !important;  }
+        
+        /* Memastikan ruang untuk foto profil sudah terpesan sebelum dimuat */
+        .hero-img-container { aspect-ratio: 176 / 235; background: #e5e7eb; }
     </style>
 </head>
 
@@ -69,16 +82,21 @@
             <div class="flex items-center gap-3">
                 <!-- Dark Mode Icon (Material style) -->
             <button id="darkToggle" 
-        class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 active:scale-95"
         title="Ganti Mode Cahaya/Gelap"
         aria-label="Ganti Mode Cahaya/Gelap">
-    <span id="themeIcon"></span>
+    <span id="themeIcon" class="flex items-center justify-center w-6 h-6"></span>
 </button>
 
                 <!-- Hamburger -->
-                <button id="menuBtn" class="md:hidden text-xl">
-                    ☰
-                </button>
+                <!-- Hamburger Menu yang Dioptimalkan -->
+<button id="menuBtn" 
+        class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+        aria-label="Buka Menu Navigasi"
+        aria-expanded="false"
+        aria-controls="mobileMenu">
+    <span class="text-2xl line-height-0">☰</span>
+</button>
             </div>
 
         </div>
@@ -94,6 +112,8 @@
         </div>
     </header>
 
+<main id="main-content"></main>
+
    <!-- HERO -->
 <!-- HERO -->
 <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
@@ -104,10 +124,17 @@
         <div class="absolute w-44 md:w-60 h-64 md:h-80 bg-indigo-200 dark:bg-indigo-900 rounded-2xl blur-3xl opacity-40"></div>
 
         <!-- Foto profil dengan link baru: h-auto biar nggak motong kepala -->
-        <img src="https://i.imgur.com/rC2e6hn.jpg" 
-             alt="Foto Profil Reza Ahmad Al Ghifari" 
-             loading="eager" 
-             class="relative w-44 md:w-60 h-auto object-contain rounded-2xl shadow-2xl border-4 border-white dark:border-gray-800">
+        <!-- Container pembungkus ditambahkan aspect-ratio agar tidak terjadi Layout Shift -->
+<!-- Container dengan aspect-ratio tetap untuk mencegah Layout Shift (CLS) -->
+<div class="relative flex justify-center w-44 md:w-60 aspect-[3/4] bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden">
+    <img src="foto_profil.webp" 
+         alt="Foto Profil Reza Ahmad Al Ghifari" 
+         width="600" 
+         height="800" 
+         loading="eager" 
+         fetchpriority="high"
+         class="relative w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white dark:border-gray-800 transition-opacity duration-300">
+</div>
     </div>
 
     <!-- Teks -->
@@ -371,35 +398,43 @@
 
     <!-- CERTIFICATES -->
     <section class="max-w-5xl mx-auto px-6 py-12">
-        <h2 class="text-2xl font-semibold mb-8 relative inline-block text-gray-800 dark:text-white">
-            Sertifikat
-            <span class="block h-1 w-16 bg-indigo-500 mt-2 rounded"></span>
-        </h2>
+    <h2 class="text-2xl font-semibold mb-8 relative inline-block text-gray-800 dark:text-white">
+        Sertifikat
+        <span class="block h-1 w-16 bg-indigo-500 mt-2 rounded"></span>
+    </h2>
 
-        <div class="grid md:grid-cols-2 gap-4">
-            <!-- Sertifikat 1 -->
-            <div
-                class="flex justify-between items-center p-4 bg-indigo-50 dark:bg-gray-800 rounded-xl shadow border-l-4 border-indigo-500 hover:shadow-md transition">
-                <div class="flex items-center gap-3">
-                    <span class="iconify text-indigo-500 text-xl" data-icon="mdi:certificate"></span>
-                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Digital Marketing dengan AI
-                        (2025)</span>
-                </div>
+    <div class="grid md:grid-cols-2 gap-4">
+        <a href="https://drive.google.com/file/d/1mfYW_RxEHkng1XZn1d3rsP5v09gIyf7t/view?usp=drive_link" 
+           target="_blank"
+           class="flex justify-between items-center p-4 bg-indigo-50 dark:bg-gray-800 rounded-xl shadow border-l-4 border-indigo-500 hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+            <div class="flex items-center gap-3">
+                <span class="iconify text-indigo-500 text-xl" data-icon="mdi:certificate"></span>
+                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Digital Marketing dengan AI (2025)
+                </span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="iconify text-indigo-600 text-lg opacity-0 group-hover:opacity-100 transition" data-icon="mdi:open-in-new"></span>
                 <span class="iconify text-indigo-600 text-lg" data-icon="mdi:check-decagram"></span>
             </div>
+        </a>
 
-            <!-- Sertifikat 2 -->
-            <div
-                class="flex justify-between items-center p-4 bg-green-50 dark:bg-gray-800 rounded-xl shadow border-l-4 border-green-500 hover:shadow-md transition">
-                <div class="flex items-center gap-3">
-                    <span class="iconify text-green-500 text-xl" data-icon="mdi:certificate"></span>
-                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Efisiensi Sistem Informasi
-                        (2025)</span>
-                </div>
+        <a href="https://drive.google.com/file/d/1x3ncYnyUrZg99QhhBm9KNuKUSUzdA1iS/view?usp=drive_link" 
+           target="_blank"
+           class="flex justify-between items-center p-4 bg-green-50 dark:bg-gray-800 rounded-xl shadow border-l-4 border-green-500 hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+            <div class="flex items-center gap-3">
+                <span class="iconify text-green-500 text-xl" data-icon="mdi:certificate"></span>
+                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Efisiensi Sistem Informasi (2025)
+                </span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="iconify text-green-600 text-lg opacity-0 group-hover:opacity-100 transition" data-icon="mdi:open-in-new"></span>
                 <span class="iconify text-green-600 text-lg" data-icon="mdi:check-decagram"></span>
             </div>
-        </div>
-    </section>
+        </a>
+    </div>
+</section>
 
     <!-- PROJECTS -->
 <section id="projects" class="max-w-6xl mx-auto px-6 py-12">
@@ -472,64 +507,74 @@
 
     <!-- CONTACT -->
     <!-- CONTACT -->
-    <section id="contact" class="py-16 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl font-semibold mb-2">Kontak</h2>
-            <div class="h-1 w-16 bg-indigo-500 mx-auto mb-8 rounded"></div>
+<!-- SECTION KONTAK OPTIMAL -->
+<section id="contact" class="py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl font-semibold mb-2">Kontak</h2>
+        <div class="h-1 w-16 bg-indigo-500 mx-auto mb-8 rounded"></div>
 
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 md:p-8">
-                <p class="text-gray-500 mb-6">Hubungi saya melalui platform berikut</p>
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 md:p-8">
+            <p class="text-gray-500 mb-6">Hubungi saya melalui platform berikut</p>
 
-                <div class="grid md:grid-cols-3 gap-4 mb-8 text-left">
-                    <!-- Email (Tetap sama karena tidak pakai target _blank) -->
-                    <a href="mailto:rezaahmadsch@gmail.com"
-                        class="flex items-center gap-3 p-4 rounded-lg bg-indigo-50 dark:bg-gray-700 border border-indigo-100 dark:border-gray-600 hover:shadow transition">
-                        <span class="iconify text-indigo-500 text-lg" data-icon="mdi:email-outline"></span>
-                        <span class="text-sm font-medium">rezaahmadsch@gmail.com</span>
-                    </a>
+            <div class="grid md:grid-cols-3 gap-4 mb-8 text-left">
+                <!-- Email -->
+                <a href="mailto:rezaahmadsch@gmail.com"
+                   aria-label="Kirim email ke rezaahmadsch@gmail.com"
+                   class="flex items-center gap-3 p-4 rounded-lg bg-indigo-50 dark:bg-gray-700 border border-indigo-100 dark:border-gray-600 hover:shadow transition">
+                    <span class="iconify text-indigo-500 text-lg" data-icon="mdi:email-outline"></span>
+                    <span class="text-sm font-medium">rezaahmadsch@gmail.com</span>
+                </a>
 
-                    <!-- GitHub (Ditambah rel="noopener noreferrer") -->
-                    <a href="https://github.com/ahmadreza0101" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center gap-3 p-4 rounded-lg bg-gray-100 dark:bg-gray-700 hover:shadow transition">
-                        <span class="iconify text-lg" data-icon="mdi:github"></span>
-                        <span class="text-sm font-medium">Github</span>
-                    </a>
+                <!-- GitHub -->
+                <a href="https://github.com/ahmadreza0101" target="_blank" rel="noopener noreferrer"
+                   aria-label="Kunjungi profil GitHub Ahmad Reza"
+                   class="flex items-center gap-3 p-4 rounded-lg bg-gray-100 dark:bg-gray-700 hover:shadow transition">
+                    <span class="iconify text-lg" data-icon="mdi:github"></span>
+                    <span class="text-sm font-medium">Github</span>
+                </a>
 
-                    <!-- LinkedIn (Ditambah rel="noopener noreferrer") -->
-                    <a href="https://www.linkedin.com/in/reza-ahmad-al-ghifari/" target="_blank"
-                        rel="noopener noreferrer"
-                        class="flex items-center gap-3 p-4 rounded-lg bg-blue-50 dark:bg-gray-700 border border-blue-100 dark:border-gray-600 hover:shadow transition">
-                        <span class="iconify text-blue-500 text-lg" data-icon="mdi:linkedin"></span>
-                        <span class="text-sm font-medium">linkedin.com</span>
-                    </a>
-                </div>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/reza-ahmad-al-ghifari/" target="_blank" rel="noopener noreferrer"
+                   aria-label="Kunjungi profil LinkedIn Reza Ahmad Al Ghifari"
+                   class="flex items-center gap-3 p-4 rounded-lg bg-blue-50 dark:bg-gray-700 border border-blue-100 dark:border-gray-600 hover:shadow transition">
+                    <span class="iconify text-blue-500 text-lg" data-icon="mdi:linkedin"></span>
+                    <span class="text-sm font-medium">linkedin.com</span>
+                </a>
+            </div>
 
-                <!-- SECONDARY SOCIALS (Semua ditambah rel="noopener noreferrer") -->
-                <div class="flex flex-wrap justify-center gap-3">
-                    <a href="https://youtube.com/@azayakarialta" target="_blank" rel="noopener noreferrer"
-                        class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-red-500 hover:text-white transition">
-                        <span class="iconify text-lg" data-icon="mdi:youtube"></span>
-                    </a>
-                    <a href="https://instagram.com/ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
-                        class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-pink-500 hover:text-white transition">
-                        <span class="iconify text-lg" data-icon="mdi:instagram"></span>
-                    </a>
-                    <a href="https://twitter.com/ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
-                        class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-black hover:text-white transition">
-                        <span class="iconify text-lg" data-icon="mdi:twitter"></span>
-                    </a>
-                    <a href="https://tiktok.com/@ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
-                        class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-black hover:text-white transition">
-                        <span class="iconify text-lg" data-icon="simple-icons:tiktok"></span>
-                    </a>
-                    <a href="https://www.threads.net/@ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
-                        class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-black hover:text-white transition">
-                        <span class="iconify text-lg" data-icon="mdi:at"></span>
-                    </a>
-                </div>
+            <!-- SECONDARY SOCIALS -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://youtube.com/@azayakarialta" target="_blank" rel="noopener noreferrer"
+                   aria-label="Kunjungi YouTube @azayakarialta"
+                   class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-red-500 hover:text-white transition">
+                    <span class="iconify text-lg" data-icon="mdi:youtube"></span>
+                </a>
+                <a href="https://instagram.com/ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
+                   aria-label="Ikuti Instagram @ahmad_reza_0101"
+                   class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-pink-500 hover:text-white transition">
+                    <span class="iconify text-lg" data-icon="mdi:instagram"></span>
+                </a>
+                <a href="https://twitter.com/ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
+                   aria-label="Ikuti Twitter @ahmad_reza_0101"
+                   class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-black hover:text-white transition">
+                    <span class="iconify text-lg" data-icon="mdi:twitter"></span>
+                </a>
+                <a href="https://tiktok.com/@ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
+                   aria-label="Ikuti TikTok @ahmad_reza_0101"
+                   class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-black hover:text-white transition">
+                    <span class="iconify text-lg" data-icon="simple-icons:tiktok"></span>
+                </a>
+                <a href="https://www.threads.net/@ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
+                   aria-label="Ikuti Threads @ahmad_reza_0101"
+                   class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-black hover:text-white transition">
+                    <span class="iconify text-lg" data-icon="mdi:at"></span>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+    </main>
 
     <footer class="bg-gray-100 dark:bg-gray-800 px-6 py-10 mt-10">
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-sm">
@@ -590,29 +635,47 @@
                 </ul>
 
                 <!-- Social Media Icons (Dibungkus tag <a> agar berfungsi sebagai link) -->
-                <div class="flex gap-3">
-                    <a href="https://youtube.com/@azayakarialta" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-red-500 transition">
-                        <span class="iconify" data-icon="mdi:youtube"></span>
-                    </a>
-                    <a href="https://instagram.com/ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-pink-500 transition">
-                        <span class="iconify" data-icon="mdi:instagram"></span>
-                    </a>
-                    <a href="https://twitter.com/ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-blue-400 transition">
-                        <span class="iconify" data-icon="mdi:twitter"></span>
-                    </a>
-                    <a href="https://github.com/ahmadreza0101" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-gray-400 transition">
-                        <span class="iconify" data-icon="mdi:github"></span>
-                    </a>
-                    <a href="https://tiktok.com/@ahmad_reza_0101" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-black dark:hover:text-white transition">
-                        <span class="iconify" data-icon="simple-icons:tiktok"></span>
-                    </a>
-                </div>
-            </div>
+               <div class="flex gap-3">
+    <a href="https://youtube.com/@azayakarialta" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Kunjungi saluran YouTube Azayaka Rialta"
+       class="hover:text-red-500 transition">
+        <span class="iconify" data-icon="mdi:youtube"></span>
+    </a>
+    
+    <a href="https://instagram.com/ahmad_reza_0101" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Kunjungi profil Instagram Ahmad Reza"
+       class="hover:text-pink-500 transition">
+        <span class="iconify" data-icon="mdi:instagram"></span>
+    </a>
+    
+    <a href="https://twitter.com/@ahmad_reza_0101" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Kunjungi profil Twitter Ahmad Reza"
+       class="hover:text-blue-400 transition">
+        <span class="iconify" data-icon="mdi:twitter"></span>
+    </a>
+    
+    <a href="https://github.com/ahmadreza0101" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Kunjungi profil GitHub Ahmad Reza"
+       class="hover:text-gray-400 transition">
+        <span class="iconify" data-icon="mdi:github"></span>
+    </a>
+    
+    <a href="https://tiktok.com/@ahmad_reza_0101" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Kunjungi profil TikTok Ahmad Reza"
+       class="hover:text-black dark:hover:text-white transition">
+        <span class="iconify" data-icon="simple-icons:tiktok"></span>
+    </a>
+</div>
 
             <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-4 text-center text-gray-400 text-xs">
                 © 2026 Reza Ahmad Al Ghifari
