@@ -1,0 +1,41 @@
+{
+  "name": "curriculum-vitae",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@iconify/tailwind4": "^1.2.3",
+    "autoprefixer": "^10.5.0",
+    "concurrently": "^9.0.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/poppins": "^5.2.7",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.84",
+    "baseline-browser-mapping": "^2.10.31",
+    "browserslist": "^4.28.2",
+    "build": "^0.1.4",
+    "caniuse-lite": "^1.0.30001793",
+    "electron-to-chromium": "^1.5.361",
+    "escalade": "^3.2.0",
+    "fraction.js": "^5.3.4",
+    "nanoid": "^3.3.12",
+    "node-releases": "^2.0.46",
+    "picocolors": "^1.1.1",
+    "postcss-value-parser": "^4.2.0",
+    "source-map-js": "^1.2.1",
+    "update-browserslist-db": "^1.2.3"
+  },
+  "scripts": {
+    "dev": "concurrently \"npx @tailwindcss/cli -i ./input.css -o ./dist/output.css --watch\" \"npx @11ty/eleventy --serve\"",
+    "build": "npx @tailwindcss/cli -i ./input.css -o ./dist/output.css && npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

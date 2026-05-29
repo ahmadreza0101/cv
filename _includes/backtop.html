@@ -1,0 +1,122 @@
+{% raw %}
+<div
+    id="backtop-container"
+    style="position:fixed;bottom:1.5rem;right:1.25rem;z-index:40;display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;opacity:1;pointer-events:auto;transition:opacity 40ms,transform 40ms;"
+    aria-label="Navigasi halaman"
+>
+    <div style="position:relative;" class="backtop-group-top">
+        <button
+            id="toTopBtn"
+            onclick="scrollToTopPage()"
+            aria-label="Kembali ke paling atas"
+            class="backtop-btn"
+        >
+            <svg id="progressRing" style="position:absolute;top:-3px;left:-3px;width:48px;height:48px;transform:rotate(-90deg);pointer-events:none;opacity:0;transition:opacity 40ms;" viewBox="0 0 48 48" aria-hidden="true">
+                <circle id="progressCircle" cx="24" cy="24" r="22" fill="none" stroke-width="2" stroke-linecap="round" stroke-dasharray="138" stroke-dashoffset="138"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;position:relative;z-index:1;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 19V5M5 12l7-7 7 7"/>
+            </svg>
+        </button>
+    </div>
+
+    <div style="position:relative;" class="backtop-group-bot">
+        <button
+            id="toBotBtn"
+            onclick="scrollToBottomPage()"
+            aria-label="Pergi ke paling bawah"
+            class="backtop-btn backtop-btn-bot"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<style>
+.backtop-btn {
+    position: relative;
+    overflow: hidden;
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+    color: #2563eb;
+}
+.backtop-btn:hover { transform: scale(1.08); background-color: #dbeafe; border-color: #60a5fa; }
+.backtop-btn:active { transform: scale(0.95); }
+
+.backtop-btn-bot {
+    background-color: #ecfdf5;
+    border-color: #a7f3d0;
+    color: #059669;
+}
+.backtop-btn-bot:hover { background-color: #d1fae5; border-color: #34d399; }
+
+#progressCircle { stroke: #60a5fa; }
+
+html.dark .backtop-btn {
+    background-color: #172554;
+    border-color: #1e40af;
+    color: #60a5fa;
+}
+html.dark .backtop-btn:hover { background-color: #1e3a8a; border-color: #3b82f6; }
+html.dark .backtop-btn-bot {
+    background-color: #022c22;
+    border-color: #065f46;
+    color: #34d399;
+}
+html.dark .backtop-btn-bot:hover { background-color: #064e3b; border-color: #10b981; }
+html.dark #progressCircle { stroke: #3b82f6; }
+
+@keyframes backtop-ripple {
+    to { transform: scale(2.5); opacity: 0; }
+}
+</style>
+
+<script>
+(function () {
+    var circle = document.getElementById('progressCircle');
+    var ring   = document.getElementById('progressRing');
+    var DASH   = 138;
+
+    function addRipple(btn) {
+        var r = document.createElement('span');
+        r.style.cssText = 'position:absolute;border-radius:50%;background:rgba(128,128,128,0.15);width:60px;height:60px;top:-9px;left:-9px;transform:scale(0);animation:backtop-ripple 0.5s linear;pointer-events:none;';
+        btn.appendChild(r);
+        setTimeout(function () { r.remove(); }, 600);
+    }
+
+    function onScroll() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = maxScroll > 0 ? scrollTop / maxScroll : 0;
+
+        circle.style.strokeDashoffset = DASH - (DASH * pct);
+        ring.style.opacity = pct > 0.02 ? '1' : '0';
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    window.scrollToTopPage = function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        addRipple(document.getElementById('toTopBtn'));
+    };
+
+    window.scrollToBottomPage = function () {
+        window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        addRipple(document.getElementById('toBotBtn'));
+    };
+})();
+</script>
+{% endraw %}

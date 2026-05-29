@@ -1,0 +1,295 @@
+<section id="blog" class="max-w-6xl mx-auto px-6 py-12">
+
+    <div class="max-w-2xl mx-auto flex flex-row items-center justify-center gap-4 md:gap-5 text-left mb-12">
+
+        <div class="w-12 h-12 md:w-16 md:h-16 
+            bg-gray-100 dark:bg-gray-800 
+            rounded-xl md:rounded-2xl 
+            overflow-hidden flex items-center justify-center 
+            p-1.5 shadow-md 
+            border border-gray-200 dark:border-gray-700 
+            shrink-0">
+
+            <img src="thumbnail/azayaka.webp"
+                onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-base md:text-xl font-black text-[#25a5be]\'>AR</span>';"
+                alt="Azayaka Rialta Logo" class="w-full h-full object-contain">
+        </div>
+
+        <div class="h-10 md:h-14 w-[1px] 
+            bg-gray-300 dark:bg-gray-700 
+            shrink-0">
+        </div>
+
+        <div class="flex flex-col justify-center">
+
+            <h1 class="text-xl md:text-3xl font-black leading-tight 
+                text-gray-900 dark:text-white mb-1.5">
+                Blog & <span class="text-[#25a5be]">Artikel</span>
+            </h1>
+
+            <p class="text-[11px] md:text-sm 
+                text-gray-600 dark:text-gray-400 
+                leading-relaxed max-w-sm md:max-w-md">
+                Sudut pandang independen seputar Game, Otomotif,
+                Militer, dan Teknologi. Dirancang sebagai bagian dari
+                <a href="https://www.azayaka.my.id" target="_blank" rel="noopener noreferrer"
+                    class="text-[#25a5be] font-medium hover:underline">
+                    Azayaka Rialta
+                </a>.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="w-full">
+
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h2 class="text-lg md:text-xl font-bold 
+                    text-gray-900 dark:text-white">
+                    Artikel Terbaru
+                </h2>
+                <p class="text-xs md:text-sm 
+                    text-gray-500 dark:text-gray-400 mt-1">
+                    6 Postingan
+                </p>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button id="prevBtn" class="w-9 h-9 md:w-10 md:h-10 rounded-xl
+                    border border-gray-200 dark:border-gray-700
+                    bg-white dark:bg-gray-800
+                    text-gray-700 dark:text-gray-200
+                    hover:bg-gray-100 dark:hover:bg-gray-700
+                    flex items-center justify-center">
+                    ←
+                </button>
+                <button id="nextBtn" class="w-9 h-9 md:w-10 md:h-10 rounded-xl
+                    border border-gray-200 dark:border-gray-700
+                    bg-white dark:bg-gray-800
+                    text-gray-700 dark:text-gray-200
+                    hover:bg-gray-100 dark:hover:bg-gray-700
+                    flex items-center justify-center">
+                    →
+                </button>
+            </div>
+        </div>
+
+        <div id="blogSlider"
+            class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide px-1"
+            style="height: 372px; overflow-y: hidden; align-items: stretch;">
+
+            <div class="flex items-center justify-center text-gray-500 dark:text-gray-400"
+                style="min-width: 100%; height: 372px;">
+                Memuat artikel...
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+    .blog-card {
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    box-shadow 0.35s ease;
+        will-change: transform;
+    }
+    .blog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -12px rgba(0,0,0,0.18);
+    }
+    .blog-card .card-img {
+        transition: transform 0.5s ease;
+    }
+    .blog-card:hover .card-img {
+        transform: scale(1.06);
+    }
+</style>
+
+<script>
+ 
+    const CACHE_KEY  = 'blogCache_posts';
+    const CACHE_TIME = 'blogCache_time';
+    const CACHE_TTL  = 60 * 60 * 1000; /* 1 jam dalam ms */
+
+    const container = document.getElementById('blogSlider');
+
+   
+    function showSkeleton() {
+        let html = '';
+        for (let i = 0; i < 6; i++) {
+            html += `
+            <article class="min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0 animate-pulse">
+                <div class="w-full h-40 bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div class="h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-4/5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col gap-2 mt-1">
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-3/4 bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                    </div>
+                    <div class="mt-auto h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                </div>
+            </article>`;
+        }
+        container.innerHTML = html;
+    }
+
+    function buildCards(posts) {
+        let html = '';
+        posts.forEach(post => {
+
+            
+            const title = post.title.$t;
+
+            
+            const link = post.link.find(l => l.rel === 'alternate').href;
+
+        
+            const date = new Date(post.published.$t).toLocaleDateString('id-ID', {
+                day: 'numeric', month: 'short', year: 'numeric'
+            });
+
+          
+            let thumbnail = 'https://picsum.photos/600/400';
+            if (post.media$thumbnail) {
+                thumbnail = post.media$thumbnail.url.replace('/s72-c/', '/w1200-h630-p-k-no-nu/');
+            }
+
+           
+            const rawContent = post.summary?.$t || post.content?.$t || '';
+            const cleanContent = rawContent.replace(/<[^>]+>/g, '').trim();
+            const excerpt = cleanContent.length > 140
+                ? cleanContent.substring(0, 140) + '...'
+                : cleanContent || 'Klik untuk membaca artikel selengkapnya.';
+
+            html += `
+            <article class="blog-card min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start group overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0">
+                <a href="${link}" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
+                    <img src="${thumbnail}" alt="Thumbnail artikel: ${title}" loading="lazy" decoding="async" width="270" height="160" class="card-img w-full h-40 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </a>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mb-3">${date}</div>
+                    <a href="${link}" target="_blank" rel="noopener noreferrer"
+                       class="text-sm font-bold leading-snug text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-[#25a5be] transition-colors duration-200 block" style="height: 2.5rem; overflow: hidden;">
+                        ${title}
+                    </a>
+                    <p class="text-xs leading-relaxed text-gray-600 dark:text-gray-400 line-clamp-3 mb-5" style="height: 3.75rem; overflow: hidden;">
+                        ${excerpt}
+                    </p>
+                    <div class="mt-auto">
+                        <a href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Baca artikel: ${title}" class="inline-flex items-center gap-2 text-[#25a5be] font-semibold text-xs hover:gap-3 transition-[gap] duration-200">
+                            Baca Artikel <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </div>
+            </article>`;
+        });
+        return html;
+    }
+
+
+    function restoreScrollPosition() {
+        const saved = sessionStorage.getItem('blogSliderScroll');
+        if (!saved) return;
+        const pos = parseInt(saved);
+        if (!pos) return;
+
+        const el = document.getElementById('blogSlider');
+
+    
+        el.style.scrollBehavior = 'auto';
+
+
+        el.scrollLeft = pos;
+
+      
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                el.scrollLeft = pos;
+            });
+        });
+
+       
+        setTimeout(() => {
+            el.scrollLeft = pos;
+         
+            el.style.scrollBehavior = '';
+        }, 150);
+    }
+
+  
+    function renderPosts(posts) {
+        container.innerHTML = buildCards(posts);
+        restoreScrollPosition();
+    }
+
+   
+    function loadBloggerPosts(data) {
+        const posts = data.feed.entry.slice(0, 6);
+
+ 
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify(posts));
+            localStorage.setItem(CACHE_TIME, Date.now().toString());
+        } catch(e) { /* localStorage penuh, abaikan */ }
+
+       
+        renderPosts(posts);
+    }
+
+   
+    function fetchFromAPI() {
+        const script = document.createElement('script');
+        script.src = 'https://www.azayaka.my.id/feeds/posts/default?alt=json-in-script&callback=loadBloggerPosts';
+        document.body.appendChild(script);
+    }
+
+  
+    (function init() {
+        let cacheHit = false;
+
+        try {
+            const cached   = localStorage.getItem(CACHE_KEY);
+            const cachedAt = localStorage.getItem(CACHE_TIME);
+            const isValid  = cachedAt && (Date.now() - parseInt(cachedAt)) < CACHE_TTL;
+
+            if (cached && isValid) {
+            
+                renderPosts(JSON.parse(cached));
+                cacheHit = true;
+            }
+        } catch(e) { }
+
+        if (!cacheHit) {
+        
+            showSkeleton();
+        }
+
+  
+        fetchFromAPI();
+    })();
+
+
+    const slider  = document.getElementById('blogSlider');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    /* Simpan posisi scroll saat user menggeser */
+    slider.addEventListener('scroll', function () {
+        sessionStorage.setItem('blogSliderScroll', slider.scrollLeft);
+    }, { passive: true });
+
+    nextBtn.addEventListener('click', function () {
+        slider.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', function () {
+        slider.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+</script>

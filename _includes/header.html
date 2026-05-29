@@ -1,0 +1,203 @@
+<header class="sticky top-0 z-50 relative">
+    
+    <div id="headerBg" class="absolute top-0 left-0 w-full h-full bg-white/80 backdrop-blur dark:bg-gray-800/80 shadow -z-10" style="transition: height 0.3s ease-in-out;"></div>
+    
+    <div class="relative max-w-6xl mx-auto flex justify-between items-center p-4">
+       <h1 class="font-bold text-lg text-indigo-500">ahmadreza.cv</h1>
+
+        <nav class="hidden md:flex gap-6 text-sm font-medium">
+            <a href="#about" class="nav-link">Tentang</a>
+            <a href="#education" class="nav-link">Pendidikan</a>
+            <a href="#experience" class="nav-link">Pengalaman</a>
+            <a href="#skills" class="nav-link">Skill</a>
+            <a href="#projects" class="nav-link">Project</a>
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="#contact" class="nav-link">Kontak</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+            <button id="darkToggle" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                <span id="icon-sun" class="flex items-center justify-center w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </span>
+                <span id="icon-moon" class="flex items-center justify-center w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </span>
+            </button>
+
+            <button id="menuBtn"
+    class="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg
+    hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300
+    focus:outline-none"
+    aria-expanded="false">
+
+    <div class="relative w-5 h-5 flex items-center justify-center">
+
+    <span
+        class="menu-line top-line absolute w-4 h-[2px] bg-current rounded-full -translate-y-[5px]">
+    </span>
+
+    <span
+        class="menu-line middle-line absolute w-4 h-[2px] bg-current rounded-full">
+    </span>
+
+    <span
+        class="menu-line bottom-line absolute w-4 h-[2px] bg-current rounded-full translate-y-[5px]">
+    </span>
+
+</div>
+</button>
+        </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden absolute top-full left-0 w-full border-t border-gray-200/50 dark:border-gray-700/50">
+    <div class="mobile-menu-inner">
+        <div class="px-4 pb-4 pt-2 space-y-2 text-sm">
+            <a href="#about" class="block py-2 mobile-nav-link">Tentang</a>
+            <a href="#education" class="block py-2 mobile-nav-link">Pendidikan</a>
+            <a href="#experience" class="block py-2 mobile-nav-link">Pengalaman</a>
+            <a href="#skills" class="block py-2 mobile-nav-link">Skill</a>
+            <a href="#projects" class="block py-2 mobile-nav-link">Project</a>
+            <a href="#blog" class="block py-2 mobile-nav-link">Blog</a>
+            <a href="#contact" class="block py-2 mobile-nav-link">Kontak</a>
+        </div>
+    </div>
+</div>
+</header>
+
+<script>
+    const menuBtn = document.getElementById("menuBtn");
+
+    menuBtn.addEventListener("click", () => {
+        menuBtn.classList.toggle("active");
+    });
+
+    window.addEventListener('resize', function() {
+   
+    if (window.innerWidth >= 768) {
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const headerBg = document.getElementById('headerBg');
+
+       
+        if (menuBtn) {
+            menuBtn.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+
+      
+        if (mobileMenu && headerBg) {
+            mobileMenu.classList.remove('is-open');
+            headerBg.style.height = '100%';
+        }
+    }
+});
+</script>
+
+<style>
+    
+    .menu-line {
+        transform-origin: center;
+    }
+
+
+    #menuBtn.active .top-line {
+        transform:
+            translateY(6px)
+            rotate(45deg);
+    }
+
+    #menuBtn.active .middle-line {
+        opacity: 0;
+        transform: scaleX(0.3);
+    }
+
+    #menuBtn.active .bottom-line {
+        transform:
+            translateY(-6px)
+            rotate(-45deg);
+    }
+
+    #menuBtn .menu-line {
+        transition:
+            transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.2s ease,
+            width 0.25s ease;
+    }
+
+ 
+    .nav-link {
+        position: relative;
+        color: inherit;
+      
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+
+    .nav-link:hover {
+        color: rgb(99 102 241 / var(--tw-text-opacity, 1));
+        -webkit-text-stroke: 0.3px rgb(99 102 241); 
+      
+        transform: translateY(-2px); 
+    }
+
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px; 
+        left: 0;
+        width: 0;
+        height: 2px; 
+        background-color: rgb(99 102 241);
+        transition: width 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+
+
+    .mobile-nav-link {
+        position: relative;
+        color: inherit;
+
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+
+    .mobile-nav-link::before {
+        content: '';
+        position: absolute;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px; 
+        height: 0;
+        background-color: rgb(99 102 241);
+        border-radius: 4px;
+        transition: height 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+    }
+
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link:active {
+        color: rgb(99 102 241 / var(--tw-text-opacity, 1));
+
+        -webkit-text-stroke: 0.3px rgb(99 102 241);
+
+        transform: translateX(6px);
+    }
+
+    .mobile-nav-link:hover::before,
+    .mobile-nav-link:active::before {
+        height: 60%;
+        opacity: 1;
+    }
+</style>

@@ -1,0 +1,268 @@
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial');
+    size-adjust: 96%;
+    ascent-override: 90%;
+    descent-override: 22%;
+    line-gap-override: 0%;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins Fallback';
+    src: local('Arial');
+    size-adjust: 113%;
+    ascent-override: 105%;
+    descent-override: 35%;
+    line-gap-override: 0%;
+    font-display: swap;
+}
+
+
+body {
+    font-family: 'Inter', 'Inter Fallback', Arial, sans-serif;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Poppins', 'Poppins Fallback', Arial, sans-serif;
+    display: block !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+
+
+
+#darkToggle,
+#menuBtn {
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.hero-img-container {
+    aspect-ratio: 176 / 235;
+    background: #e5e7eb;
+}
+
+
+.iconify {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
+
+
+@keyframes slideUp {
+    from {
+        transform: translateY(16px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slideUp {
+    animation: slideUp 0.25s ease;
+}
+
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+[id^="modal-"] {
+   
+    display: none;
+}
+
+@media (max-width: 640px) {
+    [id^="modal-"] {
+        align-items: flex-end !important;
+        padding: 0 !important;
+    }
+
+    [id^="modal-"]>div {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 92vh !important;
+        border-radius: 1.25rem 1.25rem 0 0 !important;
+        /* Animasi slide dari bawah di mobile */
+        animation: slideUpMobile 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+}
+
+@keyframes slideUpMobile {
+    from {
+        transform: translateY(100%);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (min-width: 641px) {
+    [id^="modal-"] {
+        padding: 1rem;
+    }
+}
+
+#themeIcon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+
+.slider-container {
+    background-color: #f3f4f6; 
+    min-height: 250px; 
+}
+
+.dark .slider-container {
+    background-color: #374151; 
+}
+
+
+#before-wrapper-color {
+  
+    background-color: #f3f4f6; 
+    transition: width 0.1s ease; 
+}
+
+#before-img-target {
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out; 
+    display: block;
+}
+
+#before-img-target.is-loaded {
+    opacity: 1; 
+}
+.slider-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-image: url('dkv/editor/after.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+#icon-sun,
+#icon-moon {
+    display: none;
+}
+
+main > section,
+main > div[id] {
+   
+    min-height: 1px;
+   
+    contain: style;
+}
+
+
+
+
+
+/* MOBILE MENU & HAMBURGER ANIMATION */
+
+
+#menuBtn.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#menuBtn.is-active span:nth-child(2) {
+    opacity: 0; 
+}
+
+#menuBtn.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+#mobileMenu {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#mobileMenu.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.mobile-menu-inner {
+    overflow: hidden;
+}
+
+
+
+.card-img {
+    aspect-ratio: 600 / 192;   
+    background-color: #e5e7eb; 
+}
+.dark .card-img {
+    background-color: #374151; 
+}
+
+
+
+
+
+
+
+
+
+
+main {
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d5db; 
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #4b5563; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+html {
+    scroll-behavior: smooth; 
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}

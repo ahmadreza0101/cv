@@ -1,0 +1,1349 @@
+<section id="multimedia-projects" class="max-w-6xl mx-auto px-6 py-12">
+
+
+    <div class="flex items-center justify-between flex-wrap gap-6 mb-12">
+        <div class="relative">
+            
+            <div class="absolute -top-3 -left-3 w-20 h-20 bg-gradient-to-br from-pink-400/20 via-purple-400/20 to-cyan-400/20 blur-2xl rounded-full"></div>
+            
+            <div class="relative">
+                <div class="flex items-center gap-3 mb-2">
+                   
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 text-white flex items-center justify-center shadow-lg shadow-pink-500/20">
+                        <span class="icon-[mdi--palette-swatch-outline] text-xl"></span>
+                    </div>
+                    
+                  
+                    <div>
+                        <h2 class="text-3xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
+                            Multimedia Projects
+                        </h2>
+                        <div class="h-1 w-20 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-full mt-1"></div>
+                    </div>
+                </div>
+                
+                
+                <p class="pl-14 max-w-xl text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Kumpulan karya multimedia mulai dari desain grafis,
+                    visualisasi 3D, motion graphic, hingga editing video
+                    yang dibuat untuk eksplorasi kreativitas digital,
+                    branding visual, dan kebutuhan konten modern.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+  
+    <style>
+   
+    .mm-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .mm-card {
+        display: flex; 
+        flex-direction: column;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition: box-shadow .3s, transform .3s;
+        height: 100%; 
+    }
+
+    
+    .mm-content-wrapper {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mm-bottom {
+        margin-top: auto; 
+    }
+
+    
+    .dkv-card {
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    box-shadow 0.35s ease;
+        will-change: transform;
+    }
+    .dkv-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -12px rgba(0,0,0,0.18);
+    }
+    .dkv-card .card-img {
+        transition: transform 0.5s ease;
+    }
+    .dkv-card:hover .card-img {
+        transform: scale(1.06);
+    }
+    .dkv-card .card-overlay {
+        transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+    .dkv-card:hover .card-overlay {
+        opacity: 1;
+    }
+    .dkv-card .card-icon {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .dkv-card:hover .card-icon {
+        transform: scale(1.12);
+    }
+</style>
+
+  
+
+    <div class="flex items-center justify-between flex-wrap gap-6 mb-12">
+        
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <div onclick="openModal('graphic')"
+            class="dkv-card group overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow border border-pink-100 dark:border-gray-700 flex flex-col h-full cursor-pointer"
+            role="button" tabindex="0" aria-label="Buka project Desain Grafis"
+            onkeydown="if(event.key==='Enter'||event.key===' ')openModal('graphic')">
+
+            <div class="relative overflow-hidden h-48 shrink-0">
+                <img src="dkv/cupcake.webp"
+                    alt="Thumbnail project Desain Grafis – poster, branding, dan ilustrasi vector"
+                    loading="lazy" decoding="async" width="600" height="192"
+                    class="card-img w-full h-full object-cover">
+                <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
+                        <span class="card-icon icon-[mdi--eye-outline] text-2xl text-pink-500"></span>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-pink-500 text-white text-[11px] font-semibold tracking-wide shadow">
+                    Graphic Design
+                </div>
+            </div>
+
+            <div class="flex flex-col flex-grow">
+                <div class="px-5 pt-5 flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-pink-100 dark:bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center flex-shrink-0">
+                        <span class="icon-[mdi--palette-outline] text-xl"></span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-pink-600 dark:text-pink-400">Desain Grafis</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Branding & Visual Content</p>
+                    </div>
+                </div>
+
+                <div class="px-5 pt-3 pb-0">
+                    <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                        Kumpulan project visual kreatif mulai dari branding,
+                        poster promosi, social media design, ilustrasi,
+                        hingga kebutuhan visual modern untuk media digital.
+                    </p>
+                </div>
+
+                <div class="px-5 pt-4 flex flex-wrap gap-2 content-start">
+                    <span class="px-2 py-1.5 rounded-lg bg-pink-50 dark:bg-gray-700 text-xs font-medium text-pink-600 dark:text-pink-300">Poster Design</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-pink-50 dark:bg-gray-700 text-xs font-medium text-pink-600 dark:text-pink-300">Branding</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-pink-50 dark:bg-gray-700 text-xs font-medium text-pink-600 dark:text-pink-300">Animal Design</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-pink-50 dark:bg-gray-700 text-xs font-medium text-pink-600 dark:text-pink-300">Food Promotion</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-pink-50 dark:bg-gray-700 text-xs font-medium text-pink-600 dark:text-pink-300">Illustration</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-pink-50 dark:bg-gray-700 text-xs font-medium text-pink-600 dark:text-pink-300">Flat Design</span>
+                </div>
+
+                <div class="flex-grow"></div>
+
+                <div class="px-5 pt-5">
+                    <button class="w-full py-2.5 rounded-xl bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
+                        Selengkapnya
+                        <span class="icon-[mdi--arrow-right] text-lg"></span>
+                    </button>
+                </div>
+
+                <div class="px-5 pt-4 pb-5 border-t border-gray-100 dark:border-gray-700 mt-4 flex flex-wrap gap-2 text-xs text-gray-500 dark:text-gray-400">
+                    <span class="px-2 py-1 rounded-md bg-pink-50 dark:bg-gray-700">CorelDRAW</span>
+                    <span class="px-2 py-1 rounded-md bg-pink-50 dark:bg-gray-700">Inkscape</span>
+                    <span class="px-2 py-1 rounded-md bg-pink-50 dark:bg-gray-700">Adobe Illustrator</span>
+                    <span class="px-2 py-1 rounded-md bg-pink-50 dark:bg-gray-700">Canva</span>
+                    <span class="px-2 py-1 rounded-md bg-pink-50 dark:bg-gray-700">Adobe Firefly</span>
+                </div>
+            </div>
+        </div>
+
+        <div onclick="openModal('3d')"
+            class="dkv-card group overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow border border-cyan-100 dark:border-gray-700 flex flex-col h-full cursor-pointer"
+            role="button" tabindex="0" aria-label="Buka project 3D Modelling"
+            onkeydown="if(event.key==='Enter'||event.key===' ')openModal('3d')">
+
+            <div class="relative overflow-hidden h-48 shrink-0">
+                <img src="dkv/dam.webp"
+                    alt="Thumbnail project 3D Modelling – environment, arsitektur, dan hard surface di Blender"
+                    loading="lazy" decoding="async" width="600" height="192"
+                    class="card-img w-full h-full object-cover">
+                <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
+                        <span class="card-icon icon-[mdi--rotate-3d] text-2xl text-cyan-500"></span>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-cyan-500 text-white text-[11px] font-semibold tracking-wide shadow">
+                    3D Modelling
+                </div>
+            </div>
+
+            <div class="flex flex-col flex-grow">
+                <div class="px-5 pt-5 flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center flex-shrink-0">
+                        <span class="icon-[mdi--cube-outline] text-xl"></span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-cyan-600 dark:text-cyan-400">3D Modelling</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Environment & Hard Surface</p>
+                    </div>
+                </div>
+
+                <div class="px-5 pt-3 pb-0">
+                    <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                        Project modelling 3D untuk visualisasi environment,
+                        arsitektur, hard surface asset, prop design,
+                        hingga simulasi visual cinematic dan game-style scene.
+                    </p>
+                </div>
+
+                <div class="px-5 pt-4 flex flex-wrap gap-2 content-start">
+                    <span class="px-2 py-1.5 rounded-lg bg-cyan-50 dark:bg-gray-700 text-xs font-medium text-cyan-600 dark:text-cyan-300">Environment</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-cyan-50 dark:bg-gray-700 text-xs font-medium text-cyan-600 dark:text-cyan-300">Architecture</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-cyan-50 dark:bg-gray-700 text-xs font-medium text-cyan-600 dark:text-cyan-300">Hard Surface</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-cyan-50 dark:bg-gray-700 text-xs font-medium text-cyan-600 dark:text-cyan-300">Props Design</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-cyan-50 dark:bg-gray-700 text-xs font-medium text-cyan-600 dark:text-cyan-300">Stylized Scene</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-cyan-50 dark:bg-gray-700 text-xs font-medium text-cyan-600 dark:text-cyan-300">VFX Simulation</span>
+                </div>
+
+                <div class="flex-grow"></div>
+
+                <div class="px-5 pt-5">
+                    <button class="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
+                        Selengkapnya
+                        <span class="icon-[mdi--arrow-right] text-lg"></span>
+                    </button>
+                </div>
+
+                <div class="px-5 pt-4 pb-5 border-t border-gray-100 dark:border-gray-700 mt-4">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                        <span class="px-2 py-1 rounded-md bg-cyan-50 dark:bg-gray-700">Blender 3D</span>
+                        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 list-disc pl-5 m-0">
+                            <li class="leading-none">Cycles Render</li>
+                            <li class="leading-none">Eevee Engine</li>
+                        </ul>
+                        <span class="px-2 py-1 rounded-md bg-cyan-50 dark:bg-gray-700">Sketchfab 3D</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div onclick="openModal('video')"
+            class="dkv-card group overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow border border-purple-100 dark:border-gray-700 flex flex-col h-full cursor-pointer"
+            role="button" tabindex="0" aria-label="Buka project Video & Foto Editing"
+            onkeydown="if(event.key==='Enter'||event.key===' ')openModal('video')">
+
+            <div class="relative overflow-hidden h-48 shrink-0">
+                <img src="dkv/blender.webp"
+                    alt="Thumbnail project Video & Foto Editing – cinematic, color grading, dan motion graphic"
+                    loading="lazy" decoding="async" width="600" height="192"
+                    class="card-img w-full h-full object-cover">
+                <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
+                        <span class="card-icon icon-[mdi--play-circle-outline] text-2xl text-purple-500"></span>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-purple-500 text-white text-[11px] font-semibold tracking-wide shadow">
+                    Video & Foto
+                </div>
+            </div>
+
+            <div class="flex flex-col flex-grow">
+                <div class="px-5 pt-5 flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-purple-100 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center flex-shrink-0">
+                        <span class="icon-[mdi--movie-open-outline] text-xl"></span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-purple-600 dark:text-purple-400">Video & Foto Editing</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Cinematic & Creative Editing</p>
+                    </div>
+                </div>
+
+                <div class="px-5 pt-3 pb-0">
+                    <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                        Project editing kreatif untuk cinematic video,
+                        color grading, AMV editing, logo animation,
+                        beat sync editing, hingga visual motion modern
+                        untuk social media dan kebutuhan promosi digital.
+                    </p>
+                </div>
+
+                <div class="px-5 pt-4 flex flex-wrap gap-2 content-start">
+                    <span class="px-2 py-1.5 rounded-lg bg-purple-50 dark:bg-gray-700 text-xs font-medium text-purple-600 dark:text-purple-300">Color Grading</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-purple-50 dark:bg-gray-700 text-xs font-medium text-purple-600 dark:text-purple-300">3D Animation</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-purple-50 dark:bg-gray-700 text-xs font-medium text-purple-600 dark:text-purple-300">Cinematic Edit</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-purple-50 dark:bg-gray-700 text-xs font-medium text-purple-600 dark:text-purple-300">Logo Animation</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-purple-50 dark:bg-gray-700 text-xs font-medium text-purple-600 dark:text-purple-300">Beat Sync</span>
+                    <span class="px-2 py-1.5 rounded-lg bg-purple-50 dark:bg-gray-700 text-xs font-medium text-purple-600 dark:text-purple-300">AMV Editing</span>
+                </div>
+
+                <div class="flex-grow"></div>
+
+                <div class="px-5 pt-5">
+                    <button class="w-full py-2.5 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
+                        Selengkapnya
+                        <span class="icon-[mdi--arrow-right] text-lg"></span>
+                    </button>
+                </div>
+
+                <div class="px-5 pt-4 pb-5 border-t border-gray-100 dark:border-gray-700 mt-4 flex flex-wrap gap-2 text-xs text-gray-500 dark:text-gray-400">
+                    <span class="px-2 py-1 rounded-md bg-purple-50 dark:bg-gray-700">CapCut</span>
+                    <span class="px-2 py-1 rounded-md bg-purple-50 dark:bg-gray-700">Premiere</span>
+                    <span class="px-2 py-1 rounded-md bg-purple-50 dark:bg-gray-700">Photoshop</span>
+                    <span class="px-2 py-1 rounded-md bg-purple-50 dark:bg-gray-700">Davinci Resolve</span>
+                    <span class="px-2 py-1 rounded-md bg-purple-50 dark:bg-gray-700">After Effects</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#  MODAL: GRAPHIC DESIGN #}
+<div id="modal-graphic"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto touch-manipulation"
+    onclick="handleBackdrop(event, 'graphic')">
+
+    <div
+        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col animate-modalIn">
+
+    
+        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700 shrink-0">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center">
+                    <span class="icon-[mdi--palette-outline] text-white text-base"></span>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800 dark:text-white">Desain Grafis</p>
+                    <p class="text-xs text-gray-400 dark:text-gray-500">Photoshop · Illustrator · Canva · Inkscape ·
+                        Corel Draw</p>
+                </div>
+            </div>
+            <button onclick="closeModal('graphic')"
+                class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors active:scale-95 active:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400/40 touch-manipulation">
+                <span class="icon-[mdi--close] text-lg"></span>
+            </button>
+        </div>
+
+     
+        <div class="flex gap-1 px-5 pt-4 pb-2 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
+            <button onclick="switchTab('graphic', 3)" id="tab-graphic-3"
+                class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
+                Cake Design
+            </button>
+            <button onclick="switchTab('graphic', 0)" id="tab-graphic-0"
+                class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
+                Animal Design
+            </button>
+            <button onclick="switchTab('graphic', 1)" id="tab-graphic-1"
+                class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
+                Poster Pahlawan
+            </button>
+            <button onclick="switchTab('graphic', 2)" id="tab-graphic-2"
+                class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
+                Menu Makanan
+            </button>
+            <button onclick="switchTab('graphic', 4)" id="tab-graphic-4"
+                class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
+                Flat Warship
+            </button>
+        </div>
+
+     
+        <div class="flex-1 overflow-y-auto px-5 pb-5">
+
+              {# Tab 0: Poster OS #}
+            <div id="graphic-panel-0" class="graphic-panel hidden">
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    <img src="dkv/grafis/bird.webp" alt="Ilustrasi Animal Design – desain burung flat minimalis" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                </div>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Animal Design (Bird)</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Ilustrasi sebuah desain binatang burung yang
+                            simple dan
+                            elegan untuk desain.</p>
+                    </div>
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                        <a href="dkv/grafis/bird.webp" target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--eye-outline] "></span> Preview
+                        </a>
+                        <a href="https://drive.google.com/file/d/1LOPpfUuJRgPz-A16nYjYrJAu7Ga4z4_4/view?usp=drive_link"
+                            target="_blank" download
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--download-outline] "></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+              {# Tab 1: Cake Design #}
+            <div id="graphic-panel-3" class="graphic-panel">
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    <img src="dkv/grafis/cupcake.webp" alt="Ilustrasi Cupcake Design – desain kue dengan ornamen dan dekorasi detail" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Cupcake Design</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Ilustrasi detail desain kue dengan ornamen
+                            dan dekorasi yang rumit dan presisi.</p>
+                    </div>
+
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                        <a href="dkv/cupcake.webp" target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--eye-outline] "></span> Preview
+                        </a>
+
+                        <a href="https://drive.google.com/file/d/1_srvlcv0r8WXEeYnkxhDqWK6cHiYvRbG/view?usp=drive_link"
+                            target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--download-outline] "></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+    
+              {# Tab 2: Menu Makanan #}
+            <div id="graphic-panel-2" class="graphic-panel hidden">
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    <img src="dkv/grafis/menu.webp" alt="Desain menu restoran – layout tipografi bersih dengan hierarki visual" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                </div>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Menu Makanan</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Desain layout menu restoran/kafe dengan
+                            tipografi bersih dan hierarki visual yang jelas.</p>
+                    </div>
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                        <a href="dkv/grafis/menu.webp" target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--eye-outline] "></span> Preview
+                        </a>
+                        <a href="https://drive.google.com/file/d/1EFm3vox2RxxXSUm9TfdNzDFlgEZMZ_yp/view?usp=drive_link"
+                            target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--download-outline] "></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+              {# Tab 3: Poster Hari Pahlawan #}
+            <div id="graphic-panel-1" class="graphic-panel hidden">
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    <img src="dkv/grafis/poster.webp" alt="Poster Hari Pahlawan – komposisi warna modern dan dinamis" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                </div>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Poster Hari Pahlawan</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Poster hari pahlawan dengan komposisi
+                            warna yang menarik dan modern.</p>
+                    </div>
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                        <a href="dkv/grafis/poster.webp" target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--eye-outline] "></span> Preview
+                        </a>
+                        <a href="https://drive.google.com/file/d/1aD0Fl5qEYbkUMnzDmvSZ-EoWVY5hrUlq/view?usp=drive_link"
+                            target="_blank" download
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--download-outline] "></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+          
+              {# Tab 4: Flat Design Warship #}
+            <div id="graphic-panel-4" class="graphic-panel hidden">
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    <img src="dkv/grafis/uss.webp" alt="Flat Design Warship – ilustrasi kapal perang minimalis palet warna terbatas" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                </div>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Flat Design Warship</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Ilustrasi kapal perang bergaya flat design
+                            minimalis dengan palet warna terbatas.</p>
+                    </div>
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                        <a href="dkv/grafis/uss.webp" target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--eye-outline] "></span> Preview
+                        </a>
+                        <a href="https://drive.google.com/file/d/1FxotN1aAKlle2bBu5HGOoYFw9U0zJkKa/view?usp=drive_link"
+                            target="_blank" download
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+                            <span class="icon-[mdi--download-outline] "></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+    
+     {# MODAL: 3D MODELLING #}
+<div id="modal-3d"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto touch-manipulation"
+    onclick="handleBackdrop(event, '3d')">
+
+    <div
+        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col animate-modalIn">
+
+       
+        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700 shrink-0">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center">
+                    <span class="icon-[mdi--cube-outline] text-white text-base"></span>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800 dark:text-white">3D Modelling</p>
+                    <p class="text-xs text-gray-400 dark:text-gray-500">Blender · Cycles / Eevee · Sketchfab embed</p>
+                </div>
+            </div>
+            <button onclick="closeModal('3d')"
+                class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors active:scale-95 active:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400/40 touch-manipulation">
+                <span class="icon-[mdi--close] text-lg"></span>
+            </button>
+        </div>
+
+       
+        <div class="flex gap-1 px-5 pt-4 pb-2 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
+            <button onclick="switchTab('3d', 2)" id="tab-3d-2"
+                class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
+                Concrete Dam
+            </button>
+            <button onclick="switchTab('3d', 0)" id="tab-3d-0"
+                class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
+                Exterior Home
+            </button>
+            <button onclick="switchTab('3d', 1)" id="tab-3d-1"
+                class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
+                Flag
+            </button>
+            <button onclick="switchTab('3d', 3)" id="tab-3d-3"
+                class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
+                Campfire VFX
+            </button>
+            <button onclick="switchTab('3d', 4)" id="tab-3d-4"
+                class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
+                Organic Props
+            </button>
+        </div>
+
+        
+        <div class="flex-1 overflow-y-auto px-5 pb-5">
+
+
+
+           
+            <div id="3d-panel-0" class="3d-panel hidden">
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+                    <div class="w-full aspect-video">
+                        <iframe title="Rumah & Toko Donat" class="w-full h-full" frameborder="0" allowfullscreen
+                            mozallowfullscreen="true" webkitallowfullscreen="true"
+                            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+                            execution-while-out-of-viewport execution-while-not-rendered web-share
+                            src="https://sketchfab.com/models/fae0c9353cb745a889a6b585b73f814a/embed">
+                        </iframe>
+                    </div>
+
+                </div>
+
+             
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                            Rumah & Toko Donat
+                        </h4>
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Model 3D rumah dan toko donat dengan desain stylized environment
+                            lengkap dengan detail bangunan dan suasana lingkungan.
+                        </p>
+                    </div>
+
+               
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+
+                      
+                        <a href="https://skfb.ly/pKvRH" target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-cyan-50 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--rotate-3d] "></span>
+                            View 3D
+                        </a>
+
+                        
+                        <a href="https://drive.google.com/file/d/1AQp22BDmGxc94lpoB01wazYQC8rHanYE/view?usp=drive_link"
+                            target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--download-outline] "></span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+          
+            <div id="3d-panel-1" class="3d-panel hidden">
+
+               
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+                    <div class="w-full aspect-video">
+
+                        <iframe title="Bendera" frameborder="0" allowfullscreen mozallowfullscreen="true"
+                            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+                            xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+                            class="w-full h-full"
+                            src="https://sketchfab.com/models/c4f58446701646058f94df4a675a3cc8/embed">
+                        </iframe>
+
+                    </div>
+                </div>
+
+                
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+                   
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                            Bendera
+                        </h4>
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Model 3D bendera dengan simulasi kain dan animasi sederhana
+                            yang menggunakan angin dan cloth
+                        </p>
+                    </div>
+
+                    
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+
+                       
+                        <a href="https://sketchfab.com/3d-models/bendera-c4f58446701646058f94df4a675a3cc8"
+                            target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5
+                text-xs px-3 py-2 rounded-lg
+                bg-cyan-50 dark:bg-cyan-900/30
+                text-cyan-600 dark:text-cyan-400
+                hover:bg-cyan-100 dark:hover:bg-cyan-900/50
+                transition-[opacity,transform] duration-150 active:scale-95
+                active:opacity-90 focus:outline-none
+                touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--rotate-3d] "></span>
+                            View on Sketchfab
+                        </a>
+
+                 
+                        <a href="https://drive.google.com/file/d/1t9bz5_zyK8k_k_fFxiiFrheOqHFghiuO/view?usp=sharing"
+                            target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5
+                text-xs px-3 py-2 rounded-lg
+                bg-gray-100 dark:bg-gray-700
+                text-gray-600 dark:text-gray-300
+                hover:bg-gray-200 dark:hover:bg-gray-600
+                transition-[opacity,transform] duration-150 active:scale-95
+                active:opacity-90 focus:outline-none
+                touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--download-outline] "></span>
+                            Download
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            {# Tab 2: Concrete Dam #}
+
+            <div id="3d-panel-2" class="3d-panel">
+
+                
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+                    <div class="w-full aspect-video">
+
+                        <iframe title="air terjun" frameborder="0" allowfullscreen mozallowfullscreen="true"
+                            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+                            xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+                            class="w-full h-full"
+                            src="https://sketchfab.com/models/379447ba94d045dba6494261710b264c/embed">
+                        </iframe>
+
+                    </div>
+                </div>
+
+               
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+                  
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                            Concrete Dam
+                        </h4>
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Environment 3D bendungan sederhana,
+                            dan aliran air untuk eksplorasi visual landscape Blender.
+                        </p>
+                    </div>
+
+                  
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+
+                        
+                        <a href="https://sketchfab.com/3d-models/air-terjun-379447ba94d045dba6494261710b264c"
+                            target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5
+                text-xs px-3 py-2 rounded-lg
+                bg-cyan-50 dark:bg-cyan-900/30
+                text-cyan-600 dark:text-cyan-400
+                hover:bg-cyan-100 dark:hover:bg-cyan-900/50
+                transition-[opacity,transform] duration-150 active:scale-95
+                active:opacity-90 focus:outline-none
+                touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--rotate-3d] "></span>
+                            View on Sketchfab
+                        </a>
+
+                       
+                        <a href="https://drive.google.com/drive/folders/1uiXz11zljpYzpZ80L57a9wz7Mh5qgRrc?usp=drive_link"
+                            target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5
+                text-xs px-3 py-2 rounded-lg
+                bg-gray-100 dark:bg-gray-700
+                text-gray-600 dark:text-gray-300
+                hover:bg-gray-200 dark:hover:bg-gray-600
+                transition-[opacity,transform] duration-150 active:scale-95
+                active:opacity-90 focus:outline-none
+                touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--download-outline] "></span>
+                            Download
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+      
+                 {# Tab 3: banana #}
+
+            <div id="3d-panel-3" class="3d-panel hidden">
+
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+                    <div class="w-full aspect-video">
+
+                        <iframe title="Organic Banana" frameborder="0" allowfullscreen mozallowfullscreen="true"
+                            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+                            xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+                            class="w-full h-full"
+                            src="https://sketchfab.com/models/932b4450760e47149030721291f28e39/embed">
+                        </iframe>
+
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                            Organic Banana
+                        </h4>
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Model buah pisang organik realistis dengan detail tekstur natural
+                            dan shading.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+
+                        <a href="https://sketchfab.com/3d-models/organic-banana-932b4450760e47149030721291f28e39"
+                            target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5
+                text-xs px-3 py-2 rounded-lg
+                bg-cyan-50 dark:bg-cyan-900/30
+                text-cyan-600 dark:text-cyan-400
+                hover:bg-cyan-100 dark:hover:bg-cyan-900/50
+                transition-[opacity,transform] duration-150 active:scale-95
+                active:opacity-90 focus:outline-none
+                touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--rotate-3d] "></span>
+                            View on Sketchfab
+                        </a>
+
+                        <a href="https://drive.google.com/file/d/1F2Fk1L7VFBfMViGf50Ag-asKcYW1oYfd/view?usp=drive_link"
+                            target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5
+                text-xs px-3 py-2 rounded-lg
+                bg-gray-100 dark:bg-gray-700
+                text-gray-600 dark:text-gray-300
+                hover:bg-gray-200 dark:hover:bg-gray-600
+                transition-[opacity,transform] duration-150 active:scale-95
+                active:opacity-90 focus:outline-none
+                touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--download-outline] "></span>
+                            Download
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="3d-panel-4" class="3d-panel hidden">
+
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+                    <div class="w-full aspect-video relative">
+
+                        <iframe title="Tempat Pensil - Cloverania" class="w-full h-full" frameborder="0" allowfullscreen
+                            mozallowfullscreen="true" webkitallowfullscreen="true"
+                            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+                            execution-while-out-of-viewport execution-while-not-rendered web-share
+                            src="https://sketchfab.com/models/d4cfcc69db774a929d042a412fd77445/embed?ui_theme=dark">
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+                
+    {# organic & hard surface props #}
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+                    <div>
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                            Organic & Hard Surface Props
+                        </h4>
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Pemodelan organik pisang dan hard surface mesh pencil holder
+                            sebagai latihan teknik sculpting.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+
+                        <a href="https://sketchfab.com/3d-models/tempat--pensil-cloverania-d4cfcc69db774a929d042a412fd77445"
+                            target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-cyan-50 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--web] "></span>
+                            Preview
+
+                        </a>
+
+                        <a href="https://drive.google.com/file/d/17eduKbBaHffmHViCVRgqNn7lyNEkenQn/view?usp=drive_link"
+                            target="_blank"
+                            class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
+
+                            <span class="icon-[mdi--download-outline] "></span>
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+    {# MODAL: VIDEO & MOTION #}
+<div id="modal-video"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto touch-manipulation"
+    onclick="handleBackdrop(event, 'video')">
+
+    <div
+        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col animate-modalIn">
+
+      
+        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700 shrink-0">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
+                    <span class="icon-[mdi--video-outline] text-white text-base"></span>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800 dark:text-white">Video & Foto Editing</p>
+                    <p class="text-xs text-gray-400 dark:text-gray-500">CapCut · Blender · YouTube / Vimeo embed</p>
+                </div>
+            </div>
+            <button onclick="closeModal('video')"
+                class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors active:scale-95 active:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400/40 touch-manipulation">
+                <span class="icon-[mdi--close] text-lg"></span>
+            </button>
+        </div>
+
+    
+    
+<div class="flex gap-1 px-5 pt-4 pb-2 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
+
+    <button onclick="switchTab('video', 0)" id="tab-video-0"
+        class="tab-btn-video shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-purple-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400 font-medium transition-[transform,box-shadow]">
+        Color Grading
+    </button>
+
+    <button onclick="switchTab('video', 1)" id="tab-video-1"
+        class="tab-btn-video shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-purple-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400 font-medium transition-[transform,box-shadow]">
+        3D Animation
+    </button>
+
+    <!-- <button onclick="switchTab('video', 2)" id="tab-video-2"
+        class="tab-btn-video shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-purple-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400 font-medium transition-[transform,box-shadow]">
+        Cinematic
+    </button>
+
+    <button onclick="switchTab('video', 3)" id="tab-video-3"
+        class="tab-btn-video shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-purple-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400 font-medium transition-[transform,box-shadow]">
+        Logo Animation
+    </button>
+
+
+    <button onclick="switchTab('video', 5)" id="tab-video-5"
+        class="tab-btn-video shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-purple-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400 font-medium transition-[transform,box-shadow]">
+        AMV
+    </button> -->
+
+</div>
+
+        
+        <div class="flex-1 overflow-y-auto px-5 pb-5">
+
+
+       
+
+ {# TAB 0 : COLOR GRADING #}
+<div id="video-panel-0" class="video-panel">
+
+    <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+        <div class="w-full aspect-video relative overflow-hidden select-none text-gray-400 dark:text-gray-500 bg-gray-200 dark:bg-gray-800">
+            
+            <img src="dkv/editor/after.avif"
+                alt="Hasil After – foto setelah color grading cinematic"
+                loading="lazy" decoding="async"
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+
+            <img src="dkv/editor/before.avif"
+                alt="Hasil Before – foto asli sebelum color grading"
+                loading="lazy" decoding="async"
+                id="before-img-target"
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none z-10"
+                style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+
+            <div id="slider-line-color"
+                class="absolute top-0 bottom-0 z-20 pointer-events-none border-l-[1.5px] border-white/60"
+                style="left: 50%; transform: translateX(-50%);">
+
+                <div class="w-[2px] h-full bg-white shadow-lg relative">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-xl border border-gray-200 flex items-center justify-center">
+                        <span class="icon-[mdi--drag-horizontal] text-gray-700 text-xl"></span>
+                    </div>
+                </div>
+            </div>
+
+            <input id="compare-slider-color"
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 touch-manipulation">
+
+            <div class="absolute top-3 left-3 z-20 pointer-events-none">
+                <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur text-white text-xs font-medium">Before</span>
+            </div>
+            <div class="absolute top-3 right-3 z-20 pointer-events-none">
+                <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur text-white text-xs font-medium">After</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Color Grading</h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                Eksplorasi tone cinematic, mood visual, dan manipulasi warna untuk menghasilkan nuansa visual yang lebih dramatis dan emosional.
+            </p>
+        </div>
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+            <button type="button"
+                id="btn-reset-slider"
+                class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium cursor-pointer active:scale-95">
+                
+                <span class="icon-[mdi--refresh] "></span>
+                Reset
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+ {# TAB 1 : 3D ANIMATION #}
+<div id="video-panel-1" class="video-panel hidden">
+
+    <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+        <div class="w-full aspect-video bg-black relative group">
+            
+            <iframe 
+                class="absolute inset-0 w-full h-full z-10"
+                src="https://www.youtube.com/embed/g6Kk245byaI?rel=0&modestbranding=1" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+
+            <img 
+                src="dkv/blender.png" 
+                alt="Thumbnail video 3D Animation – animasi Blender untuk portofolio kreatif"
+                loading="lazy" decoding="async"
+                class="absolute inset-0 w-full h-full object-cover z-20 transition-opacity duration-300 group-hover:opacity-0 group-hover:pointer-events-none"
+            />
+
+            <div class="absolute inset-0 flex items-center justify-center z-30 transition-opacity duration-300 group-hover:opacity-0 group-hover:pointer-events-none">
+                <div class="w-16 h-11 bg-red-600 rounded-2xl flex items-center justify-center shadow-lg transform transition-transform duration-200 group-hover:scale-110">
+                    <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                3D Animation
+            </h4>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                Animasi objek dan environment 3D menggunakan Blender dengan motion, lighting, dan rendering cinematic.
+            </p>
+        </div>
+
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+            <a href="https://www.youtube.com/watch?v=g6Kk245byaI" target="_blank"
+                class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium">
+                <span class="icon-[mdi--play-circle-outline] "></span>
+                Watch
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+ {# TAB 2 : CINEMATIC #}
+
+
+<div id="video-panel-2" class="video-panel hidden">
+
+    <div
+        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+        <div
+            class="w-full aspect-video flex flex-col items-center justify-center gap-3 text-gray-400 dark:text-gray-500">
+
+            <span class="iconify text-5xl text-purple-200 dark:text-purple-900"
+                data-icon="mdi:movie-open-outline"></span>
+
+            <p class="text-sm text-center px-4">
+                Tempat preview video Cinematic.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+        <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                Cinematic Editing
+            </h4>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                Editing cinematic dengan transisi halus,
+                motion sync, dan storytelling visual
+                untuk video modern.
+            </p>
+        </div>
+
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+            <a href="#" target="_blank"
+                class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium">
+
+                <span class="icon-[mdi--play-circle-outline] "></span>
+                Watch
+
+            </a>
+        </div>
+
+    </div>
+</div>
+
+ {# TAB 3 : LOGO ANIMATION #}
+
+
+<div id="video-panel-3" class="video-panel hidden">
+
+    <div
+        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+        <div
+            class="w-full aspect-video flex flex-col items-center justify-center gap-3 text-gray-400 dark:text-gray-500">
+
+            <span class="iconify text-5xl text-purple-200 dark:text-purple-900"
+                data-icon="mdi:animation-outline"></span>
+
+            <p class="text-sm text-center px-4">
+                Tempat preview Logo Animation.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+        <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                Logo Animation
+            </h4>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                Motion logo modern untuk intro,
+                outro, dan branding visual
+                dengan animasi dinamis.
+            </p>
+        </div>
+
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+            <a href="#" target="_blank"
+                class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium">
+
+                <span class="icon-[mdi--play-circle-outline] "></span>
+                Watch
+
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+ {# TAB 5 : AMV #}
+<div id="video-panel-5" class="video-panel hidden">
+
+    <div
+        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+
+        <div
+            class="w-full aspect-video flex flex-col items-center justify-center gap-3 text-gray-400 dark:text-gray-500">
+
+            <span class="iconify text-5xl text-purple-200 dark:text-purple-900"
+                data-icon="mdi:television-play"></span>
+
+            <p class="text-sm text-center px-4">
+                Tempat preview video AMV.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+        <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
+                Anime Music Video
+            </h4>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                Editing AMV dengan efek transisi,
+                beat sync, dan cinematic impact
+                untuk konten anime modern.
+            </p>
+        </div>
+
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+            <a href="#" target="_blank"
+                class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium">
+
+                <span class="icon-[mdi--play-circle-outline] "></span>
+                Watch
+
+            </a>
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+
+
+<style>
+    @keyframes modalIn {
+        from {
+            opacity: 0;
+            transform: translateY(16px) scale(.98);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .animate-modalIn {
+        animation: modalIn .25s ease;
+    }
+</style>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const sliderColor = document.getElementById("compare-slider-color");
+    const sliderLineColor = document.getElementById("slider-line-color");
+    const beforeImg = document.getElementById("before-img-target");
+    const btnReset = document.getElementById("btn-reset-slider");
+    
+    if (sliderColor && sliderLineColor && beforeImg) {
+        
+       
+        sliderColor.addEventListener("input", (e) => {
+            const value = e.target.value;
+          
+            beforeImg.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+            sliderLineColor.style.left = value + "%";
+        });
+
+        
+        if (btnReset) {
+            btnReset.addEventListener("click", () => {
+             
+                beforeImg.style.transition = "clip-path 0.3s ease-out";
+                sliderLineColor.style.transition = "left 0.3s ease-out";
+
+             
+                sliderColor.value = 50;
+                beforeImg.style.clipPath = "polygon(0 0, 50% 0, 50% 100%, 0 100%)";
+                sliderLineColor.style.left = "50%";
+
+                
+                setTimeout(() => {
+                    beforeImg.style.transition = "none";
+                    sliderLineColor.style.transition = "none";
+                }, 300);
+            });
+        }
+    }
+});
+
+function playYoutubeVideo(panelId, videoId) {
+    const panel = document.getElementById(panelId);
+    const container = panel.querySelector('[id^="video-container"]');
+    const iframe = panel.querySelector('iframe');
+    const cover = panel.querySelector('img');
+    const playBtn = panel.querySelector('[id^="play-button-overlay"]');
+
+    if (iframe && iframe.src === "") {
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.classList.remove('hidden', 'z-0');
+        iframe.classList.add('z-40');
+        cover.classList.add('hidden');
+        playBtn.classList.add('hidden');
+        container.removeAttribute('onclick');
+        container.classList.remove('cursor-pointer');
+    }
+}
+</script>

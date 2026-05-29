@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reza Ahmad Al Ghifari | Portfolio</title>
+
+   
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+    <link rel="manifest" href="/public/site.webmanifest">
+    <link rel="shortcut icon" href="/public/favicon.ico">
+
+
+    <script>
+        
+        (function () {
+            var stored = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (stored === 'dark' || (!stored && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+
+       
+        (function () {
+            if (sessionStorage.getItem('scrollY') !== null) {
+                document.documentElement.style.visibility = 'hidden';
+            }
+        })();
+    </script>
+
+  
+    <style>
+        html { background-color: #f9fafb; } 
+        html.dark { background-color: #111827; } 
+    </style>
+
+   
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/dist/files/inter-latin-400-normal.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/dist/files/inter-latin-600-normal.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/dist/files/poppins-latin-600-normal.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/dist/files/poppins-latin-700-normal.woff2">
+
+    
+    <link rel="preload" as="image" href="/foto_profil.webp">
+
+   
+    <link href="/dist/output.css" rel="stylesheet">
+    <link href="/public/assets/style.css" rel="stylesheet">
+
+   
+    <script src="/public/assets/script.js" defer></script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    {% include "header.html" %}
+    {% include "backtop.html" %}
+
+    <main id="main-content">
+        {% include "partials/hero.html" %}
+        {% include "partials/education.html" %}
+        {% include "partials/work.html" %}
+        {% include "partials/skill.html" %}
+        {% include "partials/certificates.html" %}
+        {% include "partials/project_web.html" %}
+        {% include "partials/project_dkv.html" %}
+        {% include "partials/blog.html" %}
+        {% include "partials/youtube.html" %}
+        {% include "partials/contact.html" %}
+    </main>
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>
