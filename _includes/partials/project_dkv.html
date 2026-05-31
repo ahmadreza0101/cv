@@ -93,6 +93,57 @@
     .dkv-card:hover .card-icon {
         transform: scale(1.12);
     }
+
+  
+    .dkv-thumb-shimmer {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f9fafb 40%,
+            #f3f4f6 50%,
+            #f9fafb 60%,
+            #e5e7eb 100%
+        );
+        background-size: 300% 100%;
+        animation: dkv-shimmer 1.8s ease-in-out infinite;
+        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        will-change: background-position, opacity;
+    }
+    .dark .dkv-thumb-shimmer {
+        background: linear-gradient(
+            90deg,
+            #1f2937 0%,
+            #374151 40%,
+            #4b5563 50%,
+            #374151 60%,
+            #1f2937 100%
+        );
+        background-size: 300% 100%;
+    }
+    @keyframes dkv-shimmer {
+        0%   { background-position: 100% 0; }
+        100% { background-position: -100% 0; }
+    }
+
+   
+    .card-img-wrap--lazy .card-img {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+   
+    .card-img-wrap--lazy .card-img.dkv-thumb-reveal {
+        opacity: 1;
+    }
+  
+    .card-img-wrap--lazy.dkv-thumb-done .dkv-thumb-shimmer {
+        opacity: 0;
+    }
 </style>
 
   
@@ -107,20 +158,26 @@
             role="button" tabindex="0" aria-label="Buka project Desain Grafis"
             onkeydown="if(event.key==='Enter'||event.key===' ')openModal('graphic')">
 
-            <div class="relative overflow-hidden h-48 shrink-0">
-                <img src="dkv/cupcake.webp"
-                    alt="Thumbnail project Desain Grafis – poster, branding, dan ilustrasi vector"
-                    loading="lazy" decoding="async" width="600" height="192"
-                    class="card-img w-full h-full object-cover">
-                <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
-                        <span class="card-icon icon-[mdi--eye-outline] text-2xl text-pink-500"></span>
-                    </div>
-                </div>
-                <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-pink-500 text-white text-[11px] font-semibold tracking-wide shadow">
-                    Graphic Design
-                </div>
-            </div>
+           <div class="card-img-wrap card-img-wrap--lazy relative h-48 shrink-0 overflow-hidden">
+    <div class="dkv-thumb-shimmer" aria-hidden="true"></div>
+    <img src="dkv/cupcake.webp"
+        alt="Thumbnail project Desain Grafis – poster, branding, dan ilustrasi vector"
+        loading="lazy"
+        decoding="async"
+        width="600"
+        height="192"
+        class="card-img w-full h-full object-cover absolute inset-0">
+
+    <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
+        <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
+            <span class="card-icon icon-[mdi--eye-outline] text-2xl text-pink-500"></span>
+        </div>
+    </div>
+
+    <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-pink-500 text-white text-[11px] font-semibold tracking-wide shadow">
+        Graphic Design
+    </div>
+</div>
 
             <div class="flex flex-col flex-grow">
                 <div class="px-5 pt-5 flex items-center gap-3">
@@ -174,20 +231,26 @@
             role="button" tabindex="0" aria-label="Buka project 3D Modelling"
             onkeydown="if(event.key==='Enter'||event.key===' ')openModal('3d')">
 
-            <div class="relative overflow-hidden h-48 shrink-0">
-                <img src="dkv/dam.webp"
-                    alt="Thumbnail project 3D Modelling – environment, arsitektur, dan hard surface di Blender"
-                    loading="lazy" decoding="async" width="600" height="192"
-                    class="card-img w-full h-full object-cover">
-                <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
-                        <span class="card-icon icon-[mdi--rotate-3d] text-2xl text-cyan-500"></span>
-                    </div>
-                </div>
-                <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-cyan-500 text-white text-[11px] font-semibold tracking-wide shadow">
-                    3D Modelling
-                </div>
-            </div>
+            <div class="card-img-wrap card-img-wrap--lazy relative h-48 shrink-0 overflow-hidden">
+    <div class="dkv-thumb-shimmer" aria-hidden="true"></div>
+    <img src="dkv/dam.webp"
+        alt="Thumbnail project 3D Modelling – environment, arsitektur, dan hard surface di Blender"
+        loading="lazy"
+        decoding="async"
+        width="600"
+        height="192"
+        class="card-img w-full h-full object-cover absolute inset-0">
+
+    <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
+        <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
+            <span class="card-icon icon-[mdi--rotate-3d] text-2xl text-cyan-500"></span>
+        </div>
+    </div>
+
+    <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-cyan-500 text-white text-[11px] font-semibold tracking-wide shadow">
+        3D Modelling
+    </div>
+</div>
 
             <div class="flex flex-col flex-grow">
                 <div class="px-5 pt-5 flex items-center gap-3">
@@ -226,16 +289,36 @@
                     </button>
                 </div>
 
-                <div class="px-5 pt-4 pb-5 border-t border-gray-100 dark:border-gray-700 mt-4">
-                    <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-                        <span class="px-2 py-1 rounded-md bg-cyan-50 dark:bg-gray-700">Blender 3D</span>
-                        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 list-disc pl-5 m-0">
-                            <li class="leading-none">Cycles Render</li>
-                            <li class="leading-none">Eevee Engine</li>
-                        </ul>
-                        <span class="px-2 py-1 rounded-md bg-cyan-50 dark:bg-gray-700">Sketchfab 3D</span>
-                    </div>
-                </div>
+<div class="px-5 pt-4 pb-5 border-t border-gray-100 dark:border-gray-700 mt-4">
+    <div class="flex flex-col gap-2.5 text-xs text-gray-500 dark:text-gray-400">
+        
+        <div class="flex flex-nowrap items-center gap-2 sm:gap-3 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            
+            <span class="flex-shrink-0 px-2 py-1 rounded-md bg-cyan-50 dark:bg-gray-700 font-medium text-[11px] sm:text-xs">
+                Blender 3D
+            </span>
+            
+            <span class="flex-shrink-0 inline-flex items-center text-[10px] sm:text-[11px] italic text-cyan-600 dark:text-cyan-400 font-medium before:content-[''] before:w-1 before:h-1 sm:before:w-1.5 sm:before:h-1.5 before:bg-cyan-500 before:rounded-full before:mr-1 sm:before:mr-1.5">
+                Cycles Render
+            </span>
+            
+            <span class="flex-shrink-0 inline-flex items-center text-[10px] sm:text-[11px] italic text-cyan-600 dark:text-cyan-400 font-medium before:content-[''] before:w-1 before:h-1 sm:before:w-1.5 sm:before:h-1.5 before:bg-cyan-500 before:rounded-full before:mr-1 sm:before:mr-1.5">
+                Eevee Engine
+            </span>
+        </div>
+
+        <div class="flex">
+            <span class="px-2 py-1 rounded-md bg-cyan-50 dark:bg-gray-700 font-medium text-[11px] sm:text-xs">
+                Sketchfab Viewer
+            </span>
+        </div>
+
+    </div>
+</div>
+
+   
+
+                  
             </div>
         </div>
 
@@ -244,20 +327,26 @@
             role="button" tabindex="0" aria-label="Buka project Video & Foto Editing"
             onkeydown="if(event.key==='Enter'||event.key===' ')openModal('video')">
 
-            <div class="relative overflow-hidden h-48 shrink-0">
-                <img src="dkv/blender.webp"
-                    alt="Thumbnail project Video & Foto Editing – cinematic, color grading, dan motion graphic"
-                    loading="lazy" decoding="async" width="600" height="192"
-                    class="card-img w-full h-full object-cover">
-                <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
-                        <span class="card-icon icon-[mdi--play-circle-outline] text-2xl text-purple-500"></span>
-                    </div>
-                </div>
-                <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-purple-500 text-white text-[11px] font-semibold tracking-wide shadow">
-                    Video & Foto
-                </div>
-            </div>
+           <div class="card-img-wrap card-img-wrap--lazy relative h-48 shrink-0 overflow-hidden">
+    <div class="dkv-thumb-shimmer" aria-hidden="true"></div>
+    <img src="dkv/blender.webp"
+        alt="Thumbnail project Video & Foto Editing – cinematic, color grading, dan motion graphic"
+        loading="lazy"
+        decoding="async"
+        width="600"
+        height="192"
+        class="card-img w-full h-full object-cover absolute inset-0">
+
+    <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center">
+        <div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
+            <span class="card-icon icon-[mdi--play-circle-outline] text-2xl text-purple-500"></span>
+        </div>
+    </div>
+
+    <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-purple-500 text-white text-[11px] font-semibold tracking-wide shadow">
+        Video & Foto
+    </div>
+</div>
 
             <div class="flex flex-col flex-grow">
                 <div class="px-5 pt-5 flex items-center gap-3">
@@ -346,11 +435,11 @@
 
 {% comment %} MODAL: GRAPHIC DESIGN {% endcomment %}
 <div id="modal-graphic"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto touch-manipulation"
+    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden touch-manipulation"
     onclick="handleBackdrop(event, 'graphic')">
 
     <div
-        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col animate-modalIn">
+        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col animate-modalIn overflow-hidden max-h-[90dvh] max-h-[90vh]">
 
     
         <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700 shrink-0">
@@ -372,7 +461,7 @@
         </div>
 
      
-        <div class="flex gap-1 px-5 pt-4 pb-2 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
+        <div class="tab-scroll-row flex gap-2 pt-4 pb-2 px-4 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
             <button onclick="switchTab('graphic', 3)" id="tab-graphic-3"
                 class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
                 Cake Design
@@ -396,22 +485,22 @@
         </div>
 
      
-        <div class="flex-1 overflow-y-auto px-5 pb-5">
+        <div class="flex-1 overflow-y-auto px-5 pt-2 pb-5 modal-content-area">
 
               {% comment %} Tab 0: Poster OS {% endcomment %}
             <div id="graphic-panel-0" class="graphic-panel hidden">
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
-                    <img src="dkv/grafis/bird.webp" alt="Ilustrasi Animal Design – desain burung flat minimalis" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
+                    <div class="img-skeleton"><img data-src="dkv/grafis/bird.webp" alt="Ilustrasi Animal Design – desain burung flat minimalis" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Animal Design (Bird)</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Ilustrasi sebuah desain binatang burung yang
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">Ilustrasi sebuah desain binatang burung yang
                             simple dan
                             elegan untuk desain.</p>
                     </div>
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
                         <a href="dkv/grafis/bird.webp" target="_blank"
                             class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
                             <span class="icon-[mdi--eye-outline] "></span> Preview
@@ -428,18 +517,18 @@
               {% comment %} Tab 1: Cake Design {% endcomment %}
             <div id="graphic-panel-3" class="graphic-panel">
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
-                    <img src="dkv/grafis/cupcake.webp" alt="Ilustrasi Cupcake Design – desain kue dengan ornamen dan dekorasi detail" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
+                    <div class="img-skeleton"><img data-src="dkv/grafis/cupcake.webp" alt="Ilustrasi Cupcake Design – desain kue dengan ornamen dan dekorasi detail" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Cupcake Design</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Ilustrasi detail desain kue dengan ornamen
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">Ilustrasi detail desain kue dengan ornamen
                             dan dekorasi yang rumit dan presisi.</p>
                     </div>
 
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
                         <a href="dkv/cupcake.webp" target="_blank"
                             class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
                             <span class="icon-[mdi--eye-outline] "></span> Preview
@@ -458,16 +547,16 @@
               {% comment %} Tab 2: Menu Makanan {% endcomment %}
             <div id="graphic-panel-2" class="graphic-panel hidden">
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
-                    <img src="dkv/grafis/menu.webp" alt="Desain menu restoran – layout tipografi bersih dengan hierarki visual" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
+                    <div class="img-skeleton"><img data-src="dkv/grafis/menu.webp" alt="Desain menu restoran – layout tipografi bersih dengan hierarki visual" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Menu Makanan</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Desain layout menu restoran/kafe dengan
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">Desain layout menu restoran/kafe dengan
                             tipografi bersih dan hierarki visual yang jelas.</p>
                     </div>
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
                         <a href="dkv/grafis/menu.webp" target="_blank"
                             class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
                             <span class="icon-[mdi--eye-outline] "></span> Preview
@@ -484,16 +573,16 @@
               {% comment %} Tab 3: Poster Hari Pahlawan {% endcomment %}
             <div id="graphic-panel-1" class="graphic-panel hidden">
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
-                    <img src="dkv/grafis/poster.webp" alt="Poster Hari Pahlawan – komposisi warna modern dan dinamis" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
+                    <div class="img-skeleton"><img data-src="dkv/grafis/poster.webp" alt="Poster Hari Pahlawan – komposisi warna modern dan dinamis" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Poster Hari Pahlawan</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Poster hari pahlawan dengan komposisi
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">Poster hari pahlawan dengan komposisi
                             warna yang menarik dan modern.</p>
                     </div>
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
                         <a href="dkv/grafis/poster.webp" target="_blank"
                             class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
                             <span class="icon-[mdi--eye-outline] "></span> Preview
@@ -511,16 +600,16 @@
               {% comment %} Tab 4: Flat Design Warship {% endcomment %}
             <div id="graphic-panel-4" class="graphic-panel hidden">
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
-                    <img src="dkv/grafis/uss.webp" alt="Flat Design Warship – ilustrasi kapal perang minimalis palet warna terbatas" loading="lazy" decoding="async" class="w-full aspect-video object-contain">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
+                    <div class="img-skeleton"><img data-src="dkv/grafis/uss.webp" alt="Flat Design Warship – ilustrasi kapal perang minimalis palet warna terbatas" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Flat Design Warship</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Ilustrasi kapal perang bergaya flat design
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">Ilustrasi kapal perang bergaya flat design
                             minimalis dengan palet warna terbatas.</p>
                     </div>
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
                         <a href="dkv/grafis/uss.webp" target="_blank"
                             class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 hover:bg-pink-100 transition-[opacity,transform] duration-150 active:scale-95 active:opacity-90 focus:outline-none touch-manipulation font-medium">
                             <span class="icon-[mdi--eye-outline] "></span> Preview
@@ -544,11 +633,11 @@
     
      {% comment %} MODAL: 3D MODELLING {% endcomment %}
 <div id="modal-3d"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto touch-manipulation"
+    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden touch-manipulation"
     onclick="handleBackdrop(event, '3d')">
 
     <div
-        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col animate-modalIn">
+        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col animate-modalIn overflow-hidden max-h-[90dvh] max-h-[90vh]">
 
        
         <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700 shrink-0">
@@ -569,7 +658,7 @@
         </div>
 
        
-        <div class="flex gap-1 px-5 pt-4 pb-2 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
+        <div class="tab-scroll-row flex gap-2 pt-4 pb-2 px-4 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
             <button onclick="switchTab('3d', 2)" id="tab-3d-2"
                 class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
                 Concrete Dam
@@ -584,51 +673,51 @@
             </button>
             <button onclick="switchTab('3d', 3)" id="tab-3d-3"
                 class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
-                Campfire VFX
+                Organic Props
             </button>
             <button onclick="switchTab('3d', 4)" id="tab-3d-4"
                 class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
-                Organic Props
+                Hard Surface
             </button>
         </div>
 
         
-        <div class="flex-1 overflow-y-auto px-5 pb-5">
+        <div class="flex-1 overflow-y-auto px-5 pt-2 pb-5 modal-content-area">
 
 
 
            
             <div id="3d-panel-0" class="3d-panel hidden">
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
-                    <div class="w-full aspect-video">
-                        <iframe title="Rumah & Toko Donat" class="w-full h-full" frameborder="0" allowfullscreen
-                            mozallowfullscreen="true" webkitallowfullscreen="true"
-                            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
-                            execution-while-out-of-viewport execution-while-not-rendered web-share
-                            src="https://sketchfab.com/models/fae0c9353cb745a889a6b585b73f814a/embed">
-                        </iframe>
+                    <div class="w-full aspect-video relative sketchfab-facade" data-model-id="fae0c9353cb745a889a6b585b73f814a" data-title="Rumah &amp; Toko Donat">
+                        <div class="sketchfab-placeholder w-full h-full flex flex-col items-center justify-center gap-3 bg-gray-200 dark:bg-gray-800 cursor-pointer group" onclick="loadSketchfab(this)">
+                            <div class="w-16 h-16 rounded-full bg-cyan-500/90 backdrop-blur flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110">
+                                <svg class="w-7 h-7 text-white fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Klik untuk memuat 3D Viewer</p>
+                        </div>
                     </div>
 
                 </div>
 
              
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
 
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
                             Rumah & Toko Donat
                         </h4>
 
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                             Model 3D rumah dan toko donat dengan desain stylized environment
-                            lengkap dengan detail bangunan dan suasana lingkungan.
+                            lengkap dengan detail bangunan.
                         </p>
                     </div>
 
                
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
 
                       
                         <a href="https://skfb.ly/pKvRH" target="_blank"
@@ -655,22 +744,20 @@
 
                
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
-                    <div class="w-full aspect-video">
-
-                        <iframe title="Bendera" frameborder="0" allowfullscreen mozallowfullscreen="true"
-                            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
-                            xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
-                            class="w-full h-full"
-                            src="https://sketchfab.com/models/c4f58446701646058f94df4a675a3cc8/embed">
-                        </iframe>
-
+                    <div class="w-full aspect-video relative sketchfab-facade" data-model-id="c4f58446701646058f94df4a675a3cc8" data-title="Bendera">
+                        <div class="sketchfab-placeholder w-full h-full flex flex-col items-center justify-center gap-3 bg-gray-200 dark:bg-gray-800 cursor-pointer group" onclick="loadSketchfab(this)">
+                            <div class="w-16 h-16 rounded-full bg-cyan-500/90 backdrop-blur flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110">
+                                <svg class="w-7 h-7 text-white fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Klik untuk memuat 3D Viewer</p>
+                        </div>
                     </div>
                 </div>
 
                 
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
 
                    
                     <div>
@@ -678,14 +765,14 @@
                             Bendera
                         </h4>
 
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                             Model 3D bendera dengan simulasi kain dan animasi sederhana
                             yang menggunakan angin dan cloth
                         </p>
                     </div>
 
                     
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
 
                        
                         <a href="https://sketchfab.com/3d-models/bendera-c4f58446701646058f94df4a675a3cc8"
@@ -728,22 +815,20 @@
 
                 
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
-                    <div class="w-full aspect-video">
-
-                        <iframe title="air terjun" frameborder="0" allowfullscreen mozallowfullscreen="true"
-                            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
-                            xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
-                            class="w-full h-full"
-                            src="https://sketchfab.com/models/379447ba94d045dba6494261710b264c/embed">
-                        </iframe>
-
+                    <div class="w-full aspect-video relative sketchfab-facade" data-model-id="379447ba94d045dba6494261710b264c" data-title="Concrete Dam">
+                        <div class="sketchfab-placeholder w-full h-full flex flex-col items-center justify-center gap-3 bg-gray-200 dark:bg-gray-800 cursor-pointer group" onclick="loadSketchfab(this)">
+                            <div class="w-16 h-16 rounded-full bg-cyan-500/90 backdrop-blur flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110">
+                                <svg class="w-7 h-7 text-white fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Klik untuk memuat 3D Viewer</p>
+                        </div>
                     </div>
                 </div>
 
                
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
 
                   
                     <div>
@@ -751,14 +836,14 @@
                             Concrete Dam
                         </h4>
 
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                             Environment 3D bendungan sederhana,
                             dan aliran air untuk eksplorasi visual landscape Blender.
                         </p>
                     </div>
 
                   
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
 
                         
                         <a href="https://sketchfab.com/3d-models/air-terjun-379447ba94d045dba6494261710b264c"
@@ -800,34 +885,32 @@
             <div id="3d-panel-3" class="3d-panel hidden">
 
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
-                    <div class="w-full aspect-video">
-
-                        <iframe title="Organic Banana" frameborder="0" allowfullscreen mozallowfullscreen="true"
-                            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
-                            xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
-                            class="w-full h-full"
-                            src="https://sketchfab.com/models/932b4450760e47149030721291f28e39/embed">
-                        </iframe>
-
+                    <div class="w-full aspect-video relative sketchfab-facade" data-model-id="932b4450760e47149030721291f28e39" data-title="Organic Banana">
+                        <div class="sketchfab-placeholder w-full h-full flex flex-col items-center justify-center gap-3 bg-gray-200 dark:bg-gray-800 cursor-pointer group" onclick="loadSketchfab(this)">
+                            <div class="w-16 h-16 rounded-full bg-cyan-500/90 backdrop-blur flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110">
+                                <svg class="w-7 h-7 text-white fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Klik untuk memuat 3D Viewer</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
 
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
                             Organic Banana
                         </h4>
 
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                             Model buah pisang organik realistis dengan detail tekstur natural
-                            dan shading.
+                            dan shading yang menarik dan realistis.
                         </p>
                     </div>
 
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
 
                         <a href="https://sketchfab.com/3d-models/organic-banana-932b4450760e47149030721291f28e39"
                             target="_blank" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5
@@ -864,17 +947,15 @@
             <div id="3d-panel-4" class="3d-panel hidden">
 
                 <div
-                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+                    class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
-                    <div class="w-full aspect-video relative">
-
-                        <iframe title="Tempat Pensil - Cloverania" class="w-full h-full" frameborder="0" allowfullscreen
-                            mozallowfullscreen="true" webkitallowfullscreen="true"
-                            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
-                            execution-while-out-of-viewport execution-while-not-rendered web-share
-                            src="https://sketchfab.com/models/d4cfcc69db774a929d042a412fd77445/embed?ui_theme=dark">
-                        </iframe>
-
+                    <div class="w-full aspect-video relative sketchfab-facade" data-model-id="d4cfcc69db774a929d042a412fd77445" data-title="Organic &amp; Hard Surface Props" data-extra="?ui_theme=dark">
+                        <div class="sketchfab-placeholder w-full h-full flex flex-col items-center justify-center gap-3 bg-gray-200 dark:bg-gray-800 cursor-pointer group" onclick="loadSketchfab(this)">
+                            <div class="w-16 h-16 rounded-full bg-cyan-500/90 backdrop-blur flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110">
+                                <svg class="w-7 h-7 text-white fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Klik untuk memuat 3D Viewer</p>
+                        </div>
                     </div>
 
                 </div>
@@ -882,20 +963,20 @@
                 
     {% comment %} organic & hard surface props {% endcomment %}
 
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex flex-col gap-0">
 
                     <div>
                         <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
-                            Organic & Hard Surface Props
+                            Hard Surface Props
                         </h4>
 
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                             Pemodelan organik pisang dan hard surface mesh pencil holder
                             sebagai latihan teknik sculpting.
                         </p>
                     </div>
 
-                    <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+                    <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
 
                         <a href="https://sketchfab.com/3d-models/tempat--pensil-cloverania-d4cfcc69db774a929d042a412fd77445"
                             target="_blank"
@@ -931,11 +1012,11 @@
 
     {% comment %} MODAL: VIDEO & MOTION {% endcomment %}
 <div id="modal-video"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto touch-manipulation"
+    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden touch-manipulation"
     onclick="handleBackdrop(event, 'video')">
 
     <div
-        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col animate-modalIn">
+        class="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col animate-modalIn overflow-hidden max-h-[90dvh] max-h-[90vh]">
 
       
         <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700 shrink-0">
@@ -957,7 +1038,7 @@
 
     
     
-<div class="flex gap-1 px-5 pt-4 pb-2 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
+<div class="tab-scroll-row flex gap-2 pt-4 pb-2 px-4 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
 
     <button onclick="switchTab('video', 0)" id="tab-video-0"
         class="tab-btn-video shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-purple-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400 font-medium transition-[transform,box-shadow]">
@@ -988,7 +1069,7 @@
 </div>
 
         
-        <div class="flex-1 overflow-y-auto px-5 pb-5">
+        <div class="flex-1 overflow-y-auto px-5 pt-2 pb-5 modal-content-area">
 
 
        
@@ -996,20 +1077,24 @@
  {% comment %} TAB 0 : COLOR GRADING {% endcomment %}
 <div id="video-panel-0" class="video-panel">
 
-    <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+    <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
-        <div class="w-full aspect-video relative overflow-hidden select-none text-gray-400 dark:text-gray-500 bg-gray-200 dark:bg-gray-800">
+        <div class="w-full aspect-video relative overflow-hidden select-none text-gray-400 dark:text-gray-500 color-grade-container">
+
+            <!-- Skeleton placeholder untuk color grading -->
+            <div id="color-grade-skeleton" class="color-grade-skeleton"></div>
             
             <img src="dkv/editor/after.avif"
                 alt="Hasil After – foto setelah color grading cinematic"
                 loading="lazy" decoding="async"
-                class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+                id="color-grade-after"
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none color-grade-img z-1">
 
             <img src="dkv/editor/before.avif"
                 alt="Hasil Before – foto asli sebelum color grading"
                 loading="lazy" decoding="async"
                 id="before-img-target"
-                class="absolute inset-0 w-full h-full object-cover pointer-events-none z-10"
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none color-grade-img z-10"
                 style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
 
             <div id="slider-line-color"
@@ -1040,14 +1125,14 @@
         </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div class="flex flex-col gap-0">
         <div>
             <h4 class="font-semibold text-gray-800 dark:text-white mb-1">Color Grading</h4>
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                Eksplorasi tone cinematic, mood visual, dan manipulasi warna untuk menghasilkan nuansa visual yang lebih dramatis dan emosional.
+            <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                Eksplorasi tone cinematic, mood visual, dan manipulasi warna untuk menghasilkan nuansa visual yang elegan.
             </p>
         </div>
-        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
             <button type="button"
                 id="btn-reset-slider"
                 class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium cursor-pointer active:scale-95">
@@ -1066,48 +1151,39 @@
  {% comment %} TAB 1 : 3D ANIMATION {% endcomment %}
 <div id="video-panel-1" class="video-panel hidden">
 
-    <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+    <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
         <div class="w-full aspect-video bg-black relative group">
             
-            <iframe 
-                class="absolute inset-0 w-full h-full z-10"
-                src="https://www.youtube.com/embed/g6Kk245byaI?rel=0&modestbranding=1" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" 
-                allowfullscreen>
-            </iframe>
-
-            <img 
-                src="dkv/blender.png" 
-                alt="Thumbnail video 3D Animation – animasi Blender untuk portofolio kreatif"
-                loading="lazy" decoding="async"
-                class="absolute inset-0 w-full h-full object-cover z-20 transition-opacity duration-300 group-hover:opacity-0 group-hover:pointer-events-none"
-            />
-
-            <div class="absolute inset-0 flex items-center justify-center z-30 transition-opacity duration-300 group-hover:opacity-0 group-hover:pointer-events-none">
-                <div class="w-16 h-11 bg-red-600 rounded-2xl flex items-center justify-center shadow-lg transform transition-transform duration-200 group-hover:scale-110">
-                    <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
+            <div id="yt-facade-3danim" class="absolute inset-0 cursor-pointer" onclick="loadYouTubeFacade('yt-facade-3danim','g6Kk245byaI')">
+                <img 
+                    data-src="dkv/blender.png" src="" 
+                    alt="Thumbnail video 3D Animation – animasi Blender untuk portofolio kreatif"
+                    loading="lazy" decoding="async"
+                    class="absolute inset-0 w-full h-full object-cover lazy-img"
+                />
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-11 bg-red-600 rounded-2xl flex items-center justify-center shadow-lg transform transition-transform duration-200 hover:scale-110">
+                        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div class="flex flex-col gap-0">
         <div>
             <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
                 3D Animation
             </h4>
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                Animasi objek dan environment 3D menggunakan Blender dengan motion, lighting, dan rendering cinematic.
+            <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                Animasi objek dan environment 3D menggunakan Blender dengan, lighting dan rendering cinematic.
             </p>
         </div>
 
-        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
             <a href="https://www.youtube.com/watch?v=g6Kk245byaI" target="_blank"
                 class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium">
                 <span class="icon-[mdi--play-circle-outline] "></span>
@@ -1125,7 +1201,7 @@
 <div id="video-panel-2" class="video-panel hidden">
 
     <div
-        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
         <div
             class="w-full aspect-video flex flex-col items-center justify-center gap-3 text-gray-400 dark:text-gray-500">
@@ -1140,21 +1216,21 @@
         </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div class="flex flex-col gap-0">
 
         <div>
             <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
                 Cinematic Editing
             </h4>
 
-            <p class="text-sm text-gray-500 dark:text-gray-400">
+            <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                 Editing cinematic dengan transisi halus,
                 motion sync, dan storytelling visual
                 untuk video modern.
             </p>
         </div>
 
-        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
             <a href="#" target="_blank"
                 class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium">
 
@@ -1173,7 +1249,7 @@
 <div id="video-panel-3" class="video-panel hidden">
 
     <div
-        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
         <div
             class="w-full aspect-video flex flex-col items-center justify-center gap-3 text-gray-400 dark:text-gray-500">
@@ -1188,21 +1264,21 @@
         </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div class="flex flex-col gap-0">
 
         <div>
             <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
                 Logo Animation
             </h4>
 
-            <p class="text-sm text-gray-500 dark:text-gray-400">
+            <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                 Motion logo modern untuk intro,
                 outro, dan branding visual
                 dengan animasi dinamis.
             </p>
         </div>
 
-        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
             <a href="#" target="_blank"
                 class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium">
 
@@ -1223,7 +1299,7 @@
 <div id="video-panel-5" class="video-panel hidden">
 
     <div
-        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4 border border-gray-200 dark:border-gray-600">
+        class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
 
         <div
             class="w-full aspect-video flex flex-col items-center justify-center gap-3 text-gray-400 dark:text-gray-500">
@@ -1238,21 +1314,21 @@
         </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div class="flex flex-col gap-0">
 
         <div>
             <h4 class="font-semibold text-gray-800 dark:text-white mb-1">
                 Anime Music Video
             </h4>
 
-            <p class="text-sm text-gray-500 dark:text-gray-400">
+            <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                 Editing AMV dengan efek transisi,
                 beat sync, dan cinematic impact
                 untuk konten anime modern.
             </p>
         </div>
 
-        <div class="flex gap-2 shrink-0 w-full sm:w-auto">
+        <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
             <a href="#" target="_blank"
                 class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium">
 
@@ -1286,6 +1362,7 @@
     .animate-modalIn {
         animation: modalIn .25s ease;
     }
+
 </style>
 
 
@@ -1296,30 +1373,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const sliderLineColor = document.getElementById("slider-line-color");
     const beforeImg = document.getElementById("before-img-target");
     const btnReset = document.getElementById("btn-reset-slider");
-    
+
     if (sliderColor && sliderLineColor && beforeImg) {
-        
-       
         sliderColor.addEventListener("input", (e) => {
             const value = e.target.value;
-          
             beforeImg.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
             sliderLineColor.style.left = value + "%";
         });
 
-        
         if (btnReset) {
             btnReset.addEventListener("click", () => {
-             
                 beforeImg.style.transition = "clip-path 0.3s ease-out";
                 sliderLineColor.style.transition = "left 0.3s ease-out";
-
-             
                 sliderColor.value = 50;
                 beforeImg.style.clipPath = "polygon(0 0, 50% 0, 50% 100%, 0 100%)";
                 sliderLineColor.style.left = "50%";
-
-                
                 setTimeout(() => {
                     beforeImg.style.transition = "none";
                     sliderLineColor.style.transition = "none";
@@ -1329,21 +1397,192 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function playYoutubeVideo(panelId, videoId) {
-    const panel = document.getElementById(panelId);
-    const container = panel.querySelector('[id^="video-container"]');
-    const iframe = panel.querySelector('iframe');
-    const cover = panel.querySelector('img');
-    const playBtn = panel.querySelector('[id^="play-button-overlay"]');
-
-    if (iframe && iframe.src === "") {
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        iframe.classList.remove('hidden', 'z-0');
-        iframe.classList.add('z-40');
-        cover.classList.add('hidden');
-        playBtn.classList.add('hidden');
-        container.removeAttribute('onclick');
-        container.classList.remove('cursor-pointer');
-    }
+function loadSketchfab(placeholderEl) {
+    const facade = placeholderEl.closest('.sketchfab-facade');
+    if (!facade) return;
+    const modelId = facade.dataset.modelId;
+    const title   = facade.dataset.title || '3D Model';
+    const extra   = facade.dataset.extra  || '';
+    const iframe  = document.createElement('iframe');
+    iframe.title  = title;
+    iframe.className = 'absolute inset-0 w-full h-full';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('mozallowfullscreen', 'true');
+    iframe.setAttribute('webkitallowfullscreen', 'true');
+    iframe.setAttribute('allow', 'autoplay; fullscreen; xr-spatial-tracking');
+    iframe.src = `https://sketchfab.com/models/${modelId}/embed${extra}`;
+    placeholderEl.replaceWith(iframe);
 }
+
+function loadYouTubeFacade(facadeId, videoId) {
+    const facade = document.getElementById(facadeId);
+    if (!facade) return;
+    const iframe = document.createElement('iframe');
+    iframe.className = 'absolute inset-0 w-full h-full';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+    facade.replaceWith(iframe);
+}
+
+(function () {
+    (function () {
+        var imgs = Array.from(document.querySelectorAll('.card-img-wrap--lazy .card-img'));
+        if (!imgs.length) return;
+
+        var loaded   = 0;
+        var total    = imgs.length;
+        var revealed = false;
+        var MAX_WAIT = 2500;
+
+        function revealAll() {
+            if (revealed) return;
+            revealed = true;
+            requestAnimationFrame(function () {
+                imgs.forEach(function (img) {
+                    img.classList.add('dkv-thumb-reveal');
+                    if (img.parentElement) img.parentElement.classList.add('dkv-thumb-done');
+                });
+            });
+        }
+
+        var fallback = setTimeout(revealAll, MAX_WAIT);
+
+        imgs.forEach(function (img) {
+            function onReady() {
+                loaded++;
+                if (loaded >= total) {
+                    clearTimeout(fallback);
+                    revealAll();
+                }
+            }
+            if (img.complete && img.naturalWidth > 0) {
+                onReady();
+            } else {
+                img.addEventListener('load',  onReady, { once: true });
+                img.addEventListener('error', onReady, { once: true });
+            }
+        });
+    })();
+
+    function markLoaded(img) {
+        requestAnimationFrame(function () {
+            img.classList.add('img-loaded');
+            var skeleton = img.parentElement;
+            if (skeleton && skeleton.classList.contains('img-skeleton')) {
+                skeleton.classList.add('skeleton-done');
+                setTimeout(function () {
+                    skeleton.classList.remove('img-skeleton', 'skeleton-done');
+                }, 450);
+            }
+        });
+    }
+
+    function loadModalImages(modal) {
+        modal.querySelectorAll('img.lazy-img[data-src]').forEach(function (img) {
+            var resolvedSrc = img.getAttribute('data-src');
+            var currentSrc  = img.getAttribute('src') || '';
+            var alreadySet  = currentSrc.length > 0 &&
+                              currentSrc !== window.location.href &&
+                              !currentSrc.endsWith('/') &&
+                              currentSrc !== '';
+            if (alreadySet) {
+                if (img.complete && img.naturalWidth > 0) markLoaded(img);
+                else {
+                    img.addEventListener('load',  function () { markLoaded(img); }, { once: true });
+                    img.addEventListener('error', function () { markLoaded(img); }, { once: true });
+                }
+                return;
+            }
+            img.addEventListener('load',  function () { markLoaded(img); }, { once: true });
+            img.addEventListener('error', function () { markLoaded(img); }, { once: true });
+            img.setAttribute('src', resolvedSrc);
+        });
+    }
+
+    document.querySelectorAll('[id^="modal-"]').forEach(function (modal) {
+        var obs = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mut) {
+                if (mut.attributeName === 'style') {
+                    var d = modal.style.display;
+                    if (d === 'flex' || d === 'block') loadModalImages(modal);
+                }
+            });
+        });
+        obs.observe(modal, { attributes: true, attributeFilter: ['style'] });
+    });
+
+    
+    var preloadAfter  = new Image();
+    var preloadBefore = new Image();
+    preloadAfter.src  = 'dkv/editor/after.avif';
+    preloadBefore.src = 'dkv/editor/before.avif';
+
+function initColorGradeSkeleton() {
+    var skeleton  = document.getElementById('color-grade-skeleton');
+    var afterImg  = document.getElementById('color-grade-after');
+    var beforeImg = document.getElementById('before-img-target');
+    if (!skeleton || !afterImg || !beforeImg) return;
+    if (skeleton.style.display === 'none') return;
+
+    var loadedCount = 0;
+
+    function onOneLoaded() {
+        loadedCount++;
+        if (loadedCount >= 2) {
+ 
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    afterImg.classList.add('img-loaded');
+                    beforeImg.classList.add('img-loaded');
+
+                    
+                    skeleton.classList.add('skeleton-done');
+                    setTimeout(function () {
+                        skeleton.style.display = 'none';
+                    }, 600); 
+                });
+            });
+        }
+    }
+
+    function checkImg(img) {
+      
+        var src = img.getAttribute('src');
+        if (!img.complete || img.naturalWidth === 0) {
+            img.addEventListener('load',  onOneLoaded, { once: true });
+            img.addEventListener('error', onOneLoaded, { once: true });
+        } else {
+       
+            if ('decode' in img) {
+                img.decode().then(onOneLoaded).catch(onOneLoaded);
+            } else {
+                onOneLoaded();
+            }
+        }
+    }
+
+    checkImg(afterImg);
+    checkImg(beforeImg);
+}
+
+
+    var modalVideo  = document.getElementById('modal-video');
+    if (modalVideo) {
+        var initialized = false;
+        new MutationObserver(function (mutations) {
+            mutations.forEach(function () {
+                if (!initialized &&
+                    (modalVideo.style.display === 'flex' ||
+                     modalVideo.style.display === 'block')) {
+                    initialized = true;
+                    setTimeout(initColorGradeSkeleton, 30);
+                }
+            });
+        }).observe(modalVideo, { attributes: true, attributeFilter: ['style'] });
+    }
+})();
 </script>

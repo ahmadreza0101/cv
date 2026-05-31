@@ -33,7 +33,9 @@
     class="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg
     hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300
     focus:outline-none"
-    aria-expanded="false">
+    aria-expanded="false"
+    aria-label="Buka menu navigasi"
+    aria-controls="mobileMenu">
 
     <div class="relative w-5 h-5 flex items-center justify-center">
 
@@ -74,6 +76,9 @@
 
     menuBtn.addEventListener("click", () => {
         menuBtn.classList.toggle("active");
+        const isActive = menuBtn.classList.contains("active");
+        menuBtn.setAttribute("aria-expanded", isActive ? "true" : "false");
+        menuBtn.setAttribute("aria-label", isActive ? "Tutup menu navigasi" : "Buka menu navigasi");
     });
 
     window.addEventListener('resize', function() {

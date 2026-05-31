@@ -92,17 +92,53 @@ if (toggleBtn) {
 }
 
 
-    const beforeImg = document.getElementById("before-img-target");
 
-    if (beforeImg) {
-        if (beforeImg.complete) {
-            beforeImg.classList.add('is-loaded');
-        } else {
-            beforeImg.addEventListener('load', () => {
-                beforeImg.classList.add('is-loaded');
+
+    document.querySelectorAll('.card-img-wrap img.lazy-img[data-src]').forEach(function (img) {
+        if (img.closest('[id^="modal-"]')) return; 
+        var src = img.getAttribute('data-src');
+        if (!src) return;
+        var wrap = img.closest('.card-img-wrap');
+
+        function revealImg() {
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    img.classList.add('img-loaded');
+                    if (wrap) {
+                        wrap.classList.add('skeleton-done');
+                        setTimeout(function () { wrap.classList.remove('skeleton-done'); }, 500);
+                    }
+                });
             });
         }
-    }
+
+        img.setAttribute('src', src);
+
+        if (img.complete && img.naturalWidth > 0) {
+            revealImg();
+        } else {
+            img.addEventListener('load',  revealImg, { once: true });
+            img.addEventListener('error', revealImg, { once: true });
+        }
+    });
+
+  
+    document.querySelectorAll('.card-img-wrap img:not([data-src])').forEach(function (img) {
+        if (img.closest('[id^="modal-"]')) return; // ← jangan sentuh gambar dalam modal
+        var wrap = img.closest('.card-img-wrap');
+        if (!wrap) return;
+        function doneEager() {
+            wrap.classList.add('skeleton-done');
+            setTimeout(function () { wrap.classList.remove('skeleton-done'); }, 500);
+        }
+        if (img.complete && img.naturalWidth > 0) {
+            requestAnimationFrame(doneEager);
+        } else {
+            img.addEventListener('load',  doneEager, { once: true });
+            img.addEventListener('error', doneEager, { once: true });
+        }
+    });
+
 
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -144,27 +180,28 @@ if (toggleBtn) {
 
     window.openModal = function (type) {
 
-        const modal =
-            document.getElementById('modal-' + type);
-
+        const modal = document.getElementById('modal-' + type);
         if (!modal) return;
 
-        modal.style.display = 'flex';
 
-        document.body.style.overflow = 'hidden';
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        if (scrollbarWidth > 0) {
+            document.documentElement.style.paddingRight = scrollbarWidth + 'px';
+        }
+
+        document.documentElement.classList.add('modal-open');
+        modal.style.display = 'flex';
     };
 
 
     window.closeModal = function (type) {
 
-        const modal =
-            document.getElementById('modal-' + type);
-
+        const modal = document.getElementById('modal-' + type);
         if (!modal) return;
 
         modal.style.display = 'none';
-
-        document.body.style.overflow = '';
+        document.documentElement.classList.remove('modal-open');
+        document.documentElement.style.paddingRight = '';
     };
 
 
@@ -194,7 +231,8 @@ if (toggleBtn) {
                     }
                 });
 
-            document.body.style.overflow = '';
+            document.documentElement.classList.remove('modal-open');
+            document.documentElement.style.paddingRight = '';
         }
     });
 

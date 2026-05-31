@@ -99,8 +99,8 @@
 
       {% comment %} Copyright bar {% endcomment %}
     <div class="border-t border-gray-200 dark:border-gray-700 mt-10 pt-6 text-center text-gray-400 text-xs" style="min-height: 2.5rem;">
-        &copy; <span id="currentYear">2026</span> Reza Ahmad Al Ghifari
-    </div>
+    &copy; <span id="currentYear">2026</span> Reza Ahmad Al Ghifari
+</div>
 
    
     <script>
@@ -248,16 +248,31 @@
 <script>
 (function () {
     var yearSpan = document.getElementById('currentYear');
+    
+    
     yearSpan.textContent = new Date().getFullYear();
 
-    fetch('https://worldtimeapi.org/api/timezone/Asia/Jakarta')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-            var year = new Date(data.datetime).getFullYear();
-            if (yearSpan.textContent !== String(year)) {
-                yearSpan.textContent = year;
-            }
-        })
-        .catch(function () { });
+    
+    window.addEventListener('load', function() {
+       
+        fetch(window.location.href, { method: 'HEAD' })
+            .then(function (res) {
+                var serverDateHeader = res.headers.get('Date');
+                if (serverDateHeader) {
+                 
+                    var serverDate = new Date(serverDateHeader);
+                    var jakartaYear = new Intl.DateTimeFormat('id-ID', {
+                        year: 'numeric',
+                        timeZone: 'Asia/Jakarta'
+                    }).format(serverDate);
+                    
+                  
+                    yearSpan.textContent = jakartaYear;
+                }
+            })
+            .catch(function () { 
+              
+            });
+    });
 })();
 </script>
