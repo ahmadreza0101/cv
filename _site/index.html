@@ -46,7 +46,6 @@
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/dist/files/poppins-latin-700-normal.woff2">
 
     
-    <link rel="preload" as="image" href="/foto_profil.webp">
 
    
     <link href="/dist/output.css" rel="stylesheet">
@@ -401,7 +400,6 @@ html.dark #progressCircle { stroke: #3b82f6; }
                  alt="Foto Profil Reza Ahmad Al Ghifari" 
                  width="600" 
                  height="800" 
-                 loading="eager" 
                  fetchpriority="high"
                  class="relative w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white dark:border-gray-800 transition-opacity duration-300">
         </div>
@@ -846,112 +844,18 @@ html.dark #progressCircle { stroke: #3b82f6; }
             height: 192px;
             overflow: hidden;
         }
-
-    
-        .web-img-skeleton {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                90deg,
-                #e5e7eb 0%,
-                #f9fafb 40%,
-                #f3f4f6 50%,
-                #f9fafb 60%,
-                #e5e7eb 100%
-            );
-            background-size: 300% 100%;
-            animation: web-shimmer 1.8s ease-in-out infinite;
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: background-position, opacity;
-        }
-        .dark .web-img-skeleton {
-            background: linear-gradient(
-                90deg,
-                #1f2937 0%,
-                #374151 40%,
-                #4b5563 50%,
-                #374151 60%,
-                #1f2937 100%
-            );
-            background-size: 300% 100%;
-        }
-        @keyframes web-shimmer {
-            0%   { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
-
         .img-wrap .card-img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.5s ease;
-            will-change: opacity, transform;
-        }
-        .img-wrap .card-img.img-reveal {
             opacity: 1;
-        }
-        .img-wrap.img-done .web-img-skeleton {
-            opacity: 0;
-            pointer-events: none;
+            transition: transform 0.5s ease;
         }
     </style>
 
-    <script>
-    (function () {
-        function initWebImgSkeleton() {
-            var imgs = Array.from(document.querySelectorAll('.img-wrap .card-img'));
-            if (!imgs.length) return;
-
-            var loaded = 0;
-            var total  = imgs.length;
-
-            var MAX_WAIT = 2500;
-            var revealed = false;
-
-            function revealAll() {
-                if (revealed) return;
-                revealed = true;
-                requestAnimationFrame(function () {
-                    imgs.forEach(function (img) {
-                        img.classList.add('img-reveal');
-                        if (img.parentElement) img.parentElement.classList.add('img-done');
-                    });
-                });
-            }
-
-            var fallback = setTimeout(revealAll, MAX_WAIT);
-
-            imgs.forEach(function (img) {
-                function onReady() {
-                    loaded++;
-                    if (loaded >= total) {
-                        clearTimeout(fallback);
-                        revealAll();
-                    }
-                }
-                if (img.complete && img.naturalWidth > 0) {
-                    onReady();
-                } else {
-                    img.addEventListener('load',  onReady, { once: true });
-                    img.addEventListener('error', onReady, { once: true });
-                }
-            });
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initWebImgSkeleton);
-        } else {
-            initWebImgSkeleton();
-        }
-    })();
-    </script>
-
     <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-
 
         
 
@@ -961,11 +865,10 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
     <a href="https://archive.azayaka.my.id" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
         <div class="img-wrap">
-            <div class="web-img-skeleton" aria-hidden="true"></div>
             <img
                 src="thumbnail/azayakaachive.webp"
                 alt="Thumbnail Azayaka Archive – web pencatat media film dan novel dengan Laravel dan Supabase"
-                loading="lazy" decoding="async" width="600" height="192"
+                 loading="eager" width="600" height="192"
                 class="card-img">
         </div>
         <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-indigo-500 text-white font-semibold shadow">Dynamic</div>
@@ -1006,9 +909,8 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
             <div class="relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/project.webp" alt="Thumbnail Berita AI – website berita otomatis berbasis AI dengan Django"
-                        loading="lazy" decoding="async" width="600" height="192"
+                        loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div
@@ -1048,9 +950,8 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
             <div class="relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/project.webp" alt="Thumbnail Catatan Rahasia – web catatan pribadi aman dengan Next.js dan Supabase"
-                        loading="lazy" decoding="async" width="600" height="192"
+                         loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div
@@ -1090,9 +991,8 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
             <a href="https://lapaqpay.netlify.app" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/lapaqpay.webp" alt="Thumbnail LapaqPay – website pencatatan transaksi serverless dengan UI modern"
-                        loading="lazy" decoding="async" width="600" height="192"
+                         loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-sky-500 text-white font-semibold shadow">Serverless</div>
@@ -1131,9 +1031,8 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
             <a href="https://cv-mfze.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/pizza.webp" alt="Thumbnail Pizza Nusantara – website kuliner branding lokal dengan tampilan visual modern"
-                        loading="lazy" decoding="async" width="600" height="192"
+                      loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-orange-500 text-white font-semibold shadow">Static</div>
@@ -1172,9 +1071,8 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
             <a href="https://tugaswebdkv.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/dkvnesta.webp" alt="Thumbnail Website DKV SMKN 1 Tangerang – website desain komunikasi visual dengan layout modern"
-                        loading="lazy" decoding="async" width="600" height="192"
+                         loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-violet-500 text-white font-semibold shadow">Static</div>
@@ -1305,56 +1203,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
         transform: scale(1.12);
     }
 
-  
-    .dkv-thumb-shimmer {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: linear-gradient(
-            90deg,
-            #e5e7eb 0%,
-            #f9fafb 40%,
-            #f3f4f6 50%,
-            #f9fafb 60%,
-            #e5e7eb 100%
-        );
-        background-size: 300% 100%;
-        animation: dkv-shimmer 1.8s ease-in-out infinite;
-        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none;
-        will-change: background-position, opacity;
-    }
-    .dark .dkv-thumb-shimmer {
-        background: linear-gradient(
-            90deg,
-            #1f2937 0%,
-            #374151 40%,
-            #4b5563 50%,
-            #374151 60%,
-            #1f2937 100%
-        );
-        background-size: 300% 100%;
-    }
-    @keyframes dkv-shimmer {
-        0%   { background-position: 100% 0; }
-        100% { background-position: -100% 0; }
-    }
 
-   
-    .card-img-wrap--lazy .card-img {
-    opacity: 0;
-    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
-}
-   
-    .card-img-wrap--lazy .card-img.dkv-thumb-reveal {
-        opacity: 1;
-    }
-  
-    .card-img-wrap--lazy.dkv-thumb-done .dkv-thumb-shimmer {
-        opacity: 0;
-    }
 </style>
 
   
@@ -1369,12 +1218,10 @@ html.dark #progressCircle { stroke: #3b82f6; }
             role="button" tabindex="0" aria-label="Buka project Desain Grafis"
             onkeydown="if(event.key==='Enter'||event.key===' ')openModal('graphic')">
 
-           <div class="card-img-wrap card-img-wrap--lazy relative h-48 shrink-0 overflow-hidden">
-    <div class="dkv-thumb-shimmer" aria-hidden="true"></div>
+           <div class="card-img-wrap relative h-48 shrink-0 overflow-hidden">
     <img src="dkv/cupcake.webp"
         alt="Thumbnail project Desain Grafis – poster, branding, dan ilustrasi vector"
-        loading="lazy"
-        decoding="async"
+        loading="eager" fetchpriority="high"
         width="600"
         height="192"
         class="card-img w-full h-full object-cover absolute inset-0">
@@ -1421,7 +1268,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                 <div class="flex-grow"></div>
 
                 <div class="px-5 pt-5">
-                    <button class="w-full py-2.5 rounded-xl bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
+                    <button type="button" aria-label="Buka modal Desain Grafis" class="w-full py-2.5 rounded-xl bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
                         Selengkapnya
                         <span class="icon-[mdi--arrow-right] text-lg"></span>
                     </button>
@@ -1442,12 +1289,10 @@ html.dark #progressCircle { stroke: #3b82f6; }
             role="button" tabindex="0" aria-label="Buka project 3D Modelling"
             onkeydown="if(event.key==='Enter'||event.key===' ')openModal('3d')">
 
-            <div class="card-img-wrap card-img-wrap--lazy relative h-48 shrink-0 overflow-hidden">
-    <div class="dkv-thumb-shimmer" aria-hidden="true"></div>
+            <div class="card-img-wrap relative h-48 shrink-0 overflow-hidden">
     <img src="dkv/dam.webp"
         alt="Thumbnail project 3D Modelling – environment, arsitektur, dan hard surface di Blender"
-        loading="lazy"
-        decoding="async"
+        loading="eager"
         width="600"
         height="192"
         class="card-img w-full h-full object-cover absolute inset-0">
@@ -1494,7 +1339,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                 <div class="flex-grow"></div>
 
                 <div class="px-5 pt-5">
-                    <button class="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
+                    <button type="button" aria-label="Buka modal 3D Modelling" class="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
                         Selengkapnya
                         <span class="icon-[mdi--arrow-right] text-lg"></span>
                     </button>
@@ -1538,12 +1383,10 @@ html.dark #progressCircle { stroke: #3b82f6; }
             role="button" tabindex="0" aria-label="Buka project Video & Foto Editing"
             onkeydown="if(event.key==='Enter'||event.key===' ')openModal('video')">
 
-           <div class="card-img-wrap card-img-wrap--lazy relative h-48 shrink-0 overflow-hidden">
-    <div class="dkv-thumb-shimmer" aria-hidden="true"></div>
+           <div class="card-img-wrap relative h-48 shrink-0 overflow-hidden">
     <img src="dkv/blender.webp"
         alt="Thumbnail project Video & Foto Editing – cinematic, color grading, dan motion graphic"
-        loading="lazy"
-        decoding="async"
+        loading="eager"
         width="600"
         height="192"
         class="card-img w-full h-full object-cover absolute inset-0">
@@ -1591,7 +1434,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                 <div class="flex-grow"></div>
 
                 <div class="px-5 pt-5">
-                    <button class="w-full py-2.5 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
+                    <button type="button" aria-label="Buka modal Video & Foto Editing" class="w-full py-2.5 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-sm font-semibold transition duration-300 shadow-sm flex items-center justify-center gap-2">
                         Selengkapnya
                         <span class="icon-[mdi--arrow-right] text-lg"></span>
                     </button>
@@ -1665,7 +1508,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                         Corel Draw</p>
                 </div>
             </div>
-            <button onclick="closeModal('graphic')"
+            <button type="button" onclick="closeModal('graphic')" aria-label="Tutup modal Desain Grafis"
                 class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors active:scale-95 active:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400/40 touch-manipulation">
                 <span class="icon-[mdi--close] text-lg"></span>
             </button>
@@ -1673,23 +1516,23 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
      
         <div class="tab-scroll-row flex gap-2 pt-4 pb-2 px-4 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
-            <button onclick="switchTab('graphic', 3)" id="tab-graphic-3"
+            <button onclick="switchTab('graphic', 3)" id="tab-graphic-3" aria-label="Lihat tab Cake Design – Desain Grafis"
                 class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
                 Cake Design
             </button>
-            <button onclick="switchTab('graphic', 0)" id="tab-graphic-0"
+            <button onclick="switchTab('graphic', 0)" id="tab-graphic-0" aria-label="Lihat tab Animal Design – Desain Grafis"
                 class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
                 Animal Design
             </button>
-            <button onclick="switchTab('graphic', 1)" id="tab-graphic-1"
+            <button onclick="switchTab('graphic', 1)" id="tab-graphic-1" aria-label="Lihat tab Poster Pahlawan – Desain Grafis"
                 class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
                 Poster Pahlawan
             </button>
-            <button onclick="switchTab('graphic', 2)" id="tab-graphic-2"
+            <button onclick="switchTab('graphic', 2)" id="tab-graphic-2" aria-label="Lihat tab Menu Makanan – Desain Grafis"
                 class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
                 Menu Makanan
             </button>
-            <button onclick="switchTab('graphic', 4)" id="tab-graphic-4"
+            <button onclick="switchTab('graphic', 4)" id="tab-graphic-4" aria-label="Lihat tab Flat Warship – Desain Grafis"
                 class="tab-btn-graphic shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-pink-50 dark:bg-gray-700 text-pink-600 dark:text-pink-400 font-medium transition-[transform,box-shadow]">
                 Flat Warship
             </button>
@@ -1702,7 +1545,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
             <div id="graphic-panel-0" class="graphic-panel hidden">
                 <div
                     class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
-                    <div class="img-skeleton"><img data-src="dkv/grafis/bird.webp" alt="Ilustrasi Animal Design – desain burung flat minimalis" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
+                    <div class="img-skeleton"><img data-src="dkv/grafis/bird.webp" alt="Ilustrasi Animal Design – desain burung flat minimalis" loading="eager" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
                 <div class="flex flex-col gap-0">
                     <div>
@@ -1729,7 +1572,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
             <div id="graphic-panel-3" class="graphic-panel">
                 <div
                     class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
-                    <div class="img-skeleton"><img data-src="dkv/grafis/cupcake.webp" alt="Ilustrasi Cupcake Design – desain kue dengan ornamen dan dekorasi detail" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
+                    <div class="img-skeleton"><img data-src="dkv/grafis/cupcake.webp" alt="Ilustrasi Cupcake Design – desain kue dengan ornamen dan dekorasi detail" loading="eager" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
 
                 <div class="flex flex-col gap-0">
@@ -1759,7 +1602,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
             <div id="graphic-panel-2" class="graphic-panel hidden">
                 <div
                     class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
-                    <div class="img-skeleton"><img data-src="dkv/grafis/menu.webp" alt="Desain menu restoran – layout tipografi bersih dengan hierarki visual" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
+                    <div class="img-skeleton"><img data-src="dkv/grafis/menu.webp" alt="Desain menu restoran – layout tipografi bersih dengan hierarki visual" loading="eager" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
                 <div class="flex flex-col gap-0">
                     <div>
@@ -1785,7 +1628,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
             <div id="graphic-panel-1" class="graphic-panel hidden">
                 <div
                     class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
-                    <div class="img-skeleton"><img data-src="dkv/grafis/poster.webp" alt="Poster Hari Pahlawan – komposisi warna modern dan dinamis" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
+                    <div class="img-skeleton"><img data-src="dkv/grafis/poster.webp" alt="Poster Hari Pahlawan – komposisi warna modern dan dinamis" loading="eager" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
                 <div class="flex flex-col gap-0">
                     <div>
@@ -1812,7 +1655,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
             <div id="graphic-panel-4" class="graphic-panel hidden">
                 <div
                     class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 mb-3 border border-gray-200 dark:border-gray-600">
-                    <div class="img-skeleton"><img data-src="dkv/grafis/uss.webp" alt="Flat Design Warship – ilustrasi kapal perang minimalis palet warna terbatas" loading="lazy" decoding="async" class="w-full aspect-video object-contain lazy-img" src=""></div>
+                    <div class="img-skeleton"><img data-src="dkv/grafis/uss.webp" alt="Flat Design Warship – ilustrasi kapal perang minimalis palet warna terbatas" loading="eager" class="w-full aspect-video object-contain lazy-img" src=""></div>
                 </div>
                 <div class="flex flex-col gap-0">
                     <div>
@@ -1862,7 +1705,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                     <p class="text-xs text-gray-400 dark:text-gray-500">Blender · Cycles / Eevee · Sketchfab embed</p>
                 </div>
             </div>
-            <button onclick="closeModal('3d')"
+            <button type="button" onclick="closeModal('3d')" aria-label="Tutup modal 3D Modelling"
                 class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors active:scale-95 active:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400/40 touch-manipulation">
                 <span class="icon-[mdi--close] text-lg"></span>
             </button>
@@ -1870,23 +1713,23 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
        
         <div class="tab-scroll-row flex gap-2 pt-4 pb-2 px-4 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
-            <button onclick="switchTab('3d', 2)" id="tab-3d-2"
+            <button onclick="switchTab('3d', 2)" id="tab-3d-2" aria-label="Lihat tab Concrete Dam – 3D Modelling"
                 class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
                 Concrete Dam
             </button>
-            <button onclick="switchTab('3d', 0)" id="tab-3d-0"
+            <button onclick="switchTab('3d', 0)" id="tab-3d-0" aria-label="Lihat tab Exterior Home – 3D Modelling"
                 class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
                 Exterior Home
             </button>
-            <button onclick="switchTab('3d', 1)" id="tab-3d-1"
+            <button onclick="switchTab('3d', 1)" id="tab-3d-1" aria-label="Lihat tab Flag – 3D Modelling"
                 class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
                 Flag
             </button>
-            <button onclick="switchTab('3d', 3)" id="tab-3d-3"
+            <button onclick="switchTab('3d', 3)" id="tab-3d-3" aria-label="Lihat tab Organic Props – 3D Modelling"
                 class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
                 Organic Props
             </button>
-            <button onclick="switchTab('3d', 4)" id="tab-3d-4"
+            <button onclick="switchTab('3d', 4)" id="tab-3d-4" aria-label="Lihat tab Hard Surface – 3D Modelling"
                 class="tab-btn-3d shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-cyan-50 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 font-medium transition-[transform,box-shadow]">
                 Hard Surface
             </button>
@@ -2241,7 +2084,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                     <p class="text-xs text-gray-400 dark:text-gray-500">CapCut · Blender · YouTube / Vimeo embed</p>
                 </div>
             </div>
-            <button onclick="closeModal('video')"
+            <button type="button" onclick="closeModal('video')" aria-label="Tutup modal Video & Foto Editing"
                 class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors active:scale-95 active:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400/40 touch-manipulation">
                 <span class="icon-[mdi--close] text-lg"></span>
             </button>
@@ -2251,12 +2094,12 @@ html.dark #progressCircle { stroke: #3b82f6; }
     
 <div class="tab-scroll-row flex gap-2 pt-4 pb-2 px-4 overflow-x-auto shrink-0 scrollbar-hide snap-x snap-mandatory">
 
-    <button onclick="switchTab('video', 0)" id="tab-video-0"
+    <button onclick="switchTab('video', 0)" id="tab-video-0" aria-label="Lihat tab Color Grading – Video & Foto Editing"
         class="tab-btn-video shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-purple-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400 font-medium transition-[transform,box-shadow]">
         Color Grading
     </button>
 
-    <button onclick="switchTab('video', 1)" id="tab-video-1"
+    <button onclick="switchTab('video', 1)" id="tab-video-1" aria-label="Lihat tab 3D Animation – Video & Foto Editing"
         class="tab-btn-video shrink-0 snap-start text-xs px-3 py-1.5 rounded-full active:scale-95 touch-manipulation bg-purple-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400 font-medium transition-[transform,box-shadow]">
         3D Animation
     </button>
@@ -2297,13 +2140,13 @@ html.dark #progressCircle { stroke: #3b82f6; }
             
             <img src="dkv/editor/after.avif"
                 alt="Hasil After – foto setelah color grading cinematic"
-                loading="lazy" decoding="async"
+                loading="eager"
                 id="color-grade-after"
                 class="absolute inset-0 w-full h-full object-cover pointer-events-none color-grade-img z-1">
 
             <img src="dkv/editor/before.avif"
                 alt="Hasil Before – foto asli sebelum color grading"
-                loading="lazy" decoding="async"
+                loading="eager"
                 id="before-img-target"
                 class="absolute inset-0 w-full h-full object-cover pointer-events-none color-grade-img z-10"
                 style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
@@ -2346,6 +2189,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
         <div class="flex gap-2 shrink-0 w-full sm:w-auto mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/60">
             <button type="button"
                 id="btn-reset-slider"
+                aria-label="Reset slider perbandingan color grading"
                 class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 transition-[opacity,transform] duration-150 font-medium cursor-pointer active:scale-95">
                 
                 <span class="icon-[mdi--refresh] "></span>
@@ -2369,7 +2213,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                 <img 
                     data-src="dkv/blender.png" src="" 
                     alt="Thumbnail video 3D Animation – animasi Blender untuk portofolio kreatif"
-                    loading="lazy" decoding="async"
+                    loading="eager"
                     class="absolute inset-0 w-full h-full object-cover lazy-img"
                 />
                 <div class="absolute inset-0 flex items-center justify-center">
@@ -2640,44 +2484,7 @@ function loadYouTubeFacade(facadeId, videoId) {
 }
 
 (function () {
-    (function () {
-        var imgs = Array.from(document.querySelectorAll('.card-img-wrap--lazy .card-img'));
-        if (!imgs.length) return;
 
-        var loaded   = 0;
-        var total    = imgs.length;
-        var revealed = false;
-        var MAX_WAIT = 2500;
-
-        function revealAll() {
-            if (revealed) return;
-            revealed = true;
-            requestAnimationFrame(function () {
-                imgs.forEach(function (img) {
-                    img.classList.add('dkv-thumb-reveal');
-                    if (img.parentElement) img.parentElement.classList.add('dkv-thumb-done');
-                });
-            });
-        }
-
-        var fallback = setTimeout(revealAll, MAX_WAIT);
-
-        imgs.forEach(function (img) {
-            function onReady() {
-                loaded++;
-                if (loaded >= total) {
-                    clearTimeout(fallback);
-                    revealAll();
-                }
-            }
-            if (img.complete && img.naturalWidth > 0) {
-                onReady();
-            } else {
-                img.addEventListener('load',  onReady, { once: true });
-                img.addEventListener('error', onReady, { once: true });
-            }
-        });
-    })();
 
     function markLoaded(img) {
         requestAnimationFrame(function () {
@@ -3391,10 +3198,18 @@ function initColorGradeSkeleton() {
     </div>
 
       
-    <div class="border-t border-gray-200 dark:border-gray-700 mt-10 pt-6 text-center text-gray-400 text-xs" style="min-height: 2.5rem;">
-    &copy; <span id="currentYear">2026</span> Reza Ahmad Al Ghifari
+     <div class="border-t border-gray-200 dark:border-gray-700 mt-10 pt-6 text-center text-gray-400 text-xs" style="min-height: 2.5rem;">
+    &copy; <span id="currentYear">2026</span> 
+    <a 
+        href="https://github.com/ahmadreza0101/cv" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        aria-label="Lihat repository"
+        class="hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+    >
+        Reza Ahmad Al Ghifari
+    </a>
 </div>
-
    
     <script>
     (function () {

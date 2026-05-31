@@ -241,6 +241,14 @@ main > div[id] {
     background-color: #374151; 
 }
 
+/* project_web: img-wrap langsung tampil tanpa opacity/skeleton */
+.img-wrap {
+    background-color: #e5e7eb;
+}
+.dark .img-wrap {
+    background-color: #374151;
+}
+
 
 
 

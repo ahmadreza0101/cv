@@ -13,6 +13,7 @@
     "tailwindcss": "^4.3.0"
   },
   "dependencies": {
+    "@11ty/eleventy-img": "^6.0.4",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
     "@iconify-json/mdi": "^1.2.3",

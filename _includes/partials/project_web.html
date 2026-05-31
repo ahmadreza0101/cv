@@ -89,112 +89,18 @@
             height: 192px;
             overflow: hidden;
         }
-
-    
-        .web-img-skeleton {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                90deg,
-                #e5e7eb 0%,
-                #f9fafb 40%,
-                #f3f4f6 50%,
-                #f9fafb 60%,
-                #e5e7eb 100%
-            );
-            background-size: 300% 100%;
-            animation: web-shimmer 1.8s ease-in-out infinite;
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: background-position, opacity;
-        }
-        .dark .web-img-skeleton {
-            background: linear-gradient(
-                90deg,
-                #1f2937 0%,
-                #374151 40%,
-                #4b5563 50%,
-                #374151 60%,
-                #1f2937 100%
-            );
-            background-size: 300% 100%;
-        }
-        @keyframes web-shimmer {
-            0%   { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
-
         .img-wrap .card-img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.5s ease;
-            will-change: opacity, transform;
-        }
-        .img-wrap .card-img.img-reveal {
             opacity: 1;
-        }
-        .img-wrap.img-done .web-img-skeleton {
-            opacity: 0;
-            pointer-events: none;
+            transition: transform 0.5s ease;
         }
     </style>
 
-    <script>
-    (function () {
-        function initWebImgSkeleton() {
-            var imgs = Array.from(document.querySelectorAll('.img-wrap .card-img'));
-            if (!imgs.length) return;
-
-            var loaded = 0;
-            var total  = imgs.length;
-
-            var MAX_WAIT = 2500;
-            var revealed = false;
-
-            function revealAll() {
-                if (revealed) return;
-                revealed = true;
-                requestAnimationFrame(function () {
-                    imgs.forEach(function (img) {
-                        img.classList.add('img-reveal');
-                        if (img.parentElement) img.parentElement.classList.add('img-done');
-                    });
-                });
-            }
-
-            var fallback = setTimeout(revealAll, MAX_WAIT);
-
-            imgs.forEach(function (img) {
-                function onReady() {
-                    loaded++;
-                    if (loaded >= total) {
-                        clearTimeout(fallback);
-                        revealAll();
-                    }
-                }
-                if (img.complete && img.naturalWidth > 0) {
-                    onReady();
-                } else {
-                    img.addEventListener('load',  onReady, { once: true });
-                    img.addEventListener('error', onReady, { once: true });
-                }
-            });
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initWebImgSkeleton);
-        } else {
-            initWebImgSkeleton();
-        }
-    })();
-    </script>
-
     <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-
 
         
 
@@ -204,11 +110,10 @@
 
     <a href="https://archive.azayaka.my.id" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
         <div class="img-wrap">
-            <div class="web-img-skeleton" aria-hidden="true"></div>
             <img
                 src="thumbnail/azayakaachive.webp"
                 alt="Thumbnail Azayaka Archive – web pencatat media film dan novel dengan Laravel dan Supabase"
-                loading="lazy" decoding="async" width="600" height="192"
+                 loading="eager" width="600" height="192"
                 class="card-img">
         </div>
         <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-indigo-500 text-white font-semibold shadow">Dynamic</div>
@@ -249,9 +154,8 @@
 
             <div class="relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/project.webp" alt="Thumbnail Berita AI – website berita otomatis berbasis AI dengan Django"
-                        loading="lazy" decoding="async" width="600" height="192"
+                        loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div
@@ -291,9 +195,8 @@
 
             <div class="relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/project.webp" alt="Thumbnail Catatan Rahasia – web catatan pribadi aman dengan Next.js dan Supabase"
-                        loading="lazy" decoding="async" width="600" height="192"
+                         loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div
@@ -333,9 +236,8 @@
 
             <a href="https://lapaqpay.netlify.app" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/lapaqpay.webp" alt="Thumbnail LapaqPay – website pencatatan transaksi serverless dengan UI modern"
-                        loading="lazy" decoding="async" width="600" height="192"
+                         loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-sky-500 text-white font-semibold shadow">Serverless</div>
@@ -374,9 +276,8 @@
 
             <a href="https://cv-mfze.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/pizza.webp" alt="Thumbnail Pizza Nusantara – website kuliner branding lokal dengan tampilan visual modern"
-                        loading="lazy" decoding="async" width="600" height="192"
+                      loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-orange-500 text-white font-semibold shadow">Static</div>
@@ -415,9 +316,8 @@
 
             <a href="https://tugaswebdkv.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
-                    <div class="web-img-skeleton" aria-hidden="true"></div>
                     <img src="thumbnail/dkvnesta.webp" alt="Thumbnail Website DKV SMKN 1 Tangerang – website desain komunikasi visual dengan layout modern"
-                        loading="lazy" decoding="async" width="600" height="192"
+                         loading="eager" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-violet-500 text-white font-semibold shadow">Static</div>
