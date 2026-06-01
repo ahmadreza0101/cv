@@ -8,7 +8,9 @@
     "@11ty/eleventy": "^3.1.5",
     "@iconify/tailwind4": "^1.2.3",
     "autoprefixer": "^10.5.0",
+    "clean-css": "^5.3.3",
     "concurrently": "^9.0.0",
+    "critical": "^8.0.0",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.3.0"
   },
@@ -33,8 +35,10 @@
     "update-browserslist-db": "^1.2.3"
   },
   "scripts": {
-    "dev": "concurrently \"npx @tailwindcss/cli -i ./input.css -o ./dist/output.css --watch\" \"npx @11ty/eleventy --serve\"",
-    "build": "npx @tailwindcss/cli -i ./input.css -o ./dist/output.css && npx @11ty/eleventy"
+  "build": "npx @tailwindcss/cli -i ./input.css -o ./dist/output.css && npx @11ty/eleventy && node critical.mjs",
+  "dev": "concurrently \"npx @tailwindcss/cli -i ./input.css -o ./dist/output.css --watch\" \"npx @11ty/eleventy --serve\""
+
+    
   },
   "keywords": [],
   "author": "",

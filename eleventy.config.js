@@ -1,21 +1,15 @@
-const fs   = require('fs');
-const path = require('path');
+const CleanCSS = require("clean-css");
 
 module.exports = function (eleventyConfig) {
- 
   eleventyConfig.addPassthroughCopy("public");
   eleventyConfig.addPassthroughCopy("thumbnail");
   eleventyConfig.addPassthroughCopy("foto_profil.webp");
   eleventyConfig.addPassthroughCopy("dist");
   eleventyConfig.addPassthroughCopy("dkv");
 
-
-  eleventyConfig.addPassthroughCopy({
-    "node_modules/@fontsource/inter/files": "dist/files",
-    "node_modules/@fontsource/poppins/files": "dist/files"
+  eleventyConfig.addFilter("cssmin", function(code) {
+    return new CleanCSS({}).minify(code).styles;
   });
-
- 
 
   return {
     dir: {

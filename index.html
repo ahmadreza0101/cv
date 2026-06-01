@@ -48,8 +48,16 @@
     
 
    
-    <link href="/dist/output.css" rel="stylesheet">
-    <link href="/public/assets/style.css" rel="stylesheet">
+ <link rel="preload" href="/dist/output.css" as="style">
+<link rel="preload" href="/public/assets/style.css" as="style">
+
+<link rel="stylesheet" href="/dist/output.css">
+<link rel="stylesheet" href="/public/assets/style.css">
+
+<noscript>
+    <link rel="stylesheet" href="/dist/output.css">
+    <link rel="stylesheet" href="/public/assets/style.css">
+</noscript>
 
    
     <script src="/public/assets/script.js" defer></script>

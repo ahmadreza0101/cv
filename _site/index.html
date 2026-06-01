@@ -48,8 +48,16 @@
     
 
    
-    <link href="/dist/output.css" rel="stylesheet">
-    <link href="/public/assets/style.css" rel="stylesheet">
+ <link rel="preload" href="/dist/output.css" as="style">
+<link rel="preload" href="/public/assets/style.css" as="style">
+
+<link rel="stylesheet" href="/dist/output.css">
+<link rel="stylesheet" href="/public/assets/style.css">
+
+<noscript>
+    <link rel="stylesheet" href="/dist/output.css">
+    <link rel="stylesheet" href="/public/assets/style.css">
+</noscript>
 
    
     <script src="/public/assets/script.js" defer></script>
@@ -131,35 +139,32 @@
 </header>
 
 <script>
-    const menuBtn = document.getElementById("menuBtn");
+    document.addEventListener('DOMContentLoaded', function () {
+        var menuBtn = document.getElementById("menuBtn");
+        if (!menuBtn) return;
 
-    menuBtn.addEventListener("click", () => {
-        menuBtn.classList.toggle("active");
-        const isActive = menuBtn.classList.contains("active");
-        menuBtn.setAttribute("aria-expanded", isActive ? "true" : "false");
-        menuBtn.setAttribute("aria-label", isActive ? "Tutup menu navigasi" : "Buka menu navigasi");
+        menuBtn.addEventListener("click", function () {
+            menuBtn.classList.toggle("active");
+            var isActive = menuBtn.classList.contains("active");
+            menuBtn.setAttribute("aria-expanded", isActive ? "true" : "false");
+            menuBtn.setAttribute("aria-label", isActive ? "Tutup menu navigasi" : "Buka menu navigasi");
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 768) {
+                var mobileMenu = document.getElementById('mobileMenu');
+                var headerBg = document.getElementById('headerBg');
+
+                menuBtn.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+
+                if (mobileMenu && headerBg) {
+                    mobileMenu.classList.remove('is-open');
+                    headerBg.style.height = '100%';
+                }
+            }
+        });
     });
-
-    window.addEventListener('resize', function() {
-   
-    if (window.innerWidth >= 768) {
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const headerBg = document.getElementById('headerBg');
-
-       
-        if (menuBtn) {
-            menuBtn.classList.remove('active');
-            menuBtn.setAttribute('aria-expanded', 'false');
-        }
-
-      
-        if (mobileMenu && headerBg) {
-            mobileMenu.classList.remove('is-open');
-            headerBg.style.height = '100%';
-        }
-    }
-});
 </script>
 
 <style>
@@ -989,7 +994,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
         <div
             class="web-card group overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow border border-sky-100 dark:border-gray-700">
 
-            <a href="https://lapaqpay.netlify.app" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
+            <a href="https://lapaqpay.vercel.app" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
                     <img src="thumbnail/lapaqpay.webp" alt="Thumbnail LapaqPay – website pencatatan transaksi serverless dengan UI modern"
                          loading="eager" width="600" height="192"
@@ -1001,7 +1006,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
             <div class="p-5 flex flex-col justify-between min-h-[220px]">
 
                 <div>
-                    <a href="https://lapaqpay.netlify.app" target="_blank" rel="noopener noreferrer"
+                    <a href="https://lapaqpay.vercel.app" target="_blank" rel="noopener noreferrer"
                        class="font-semibold text-lg mb-2 text-sky-600 dark:text-sky-400 hover:text-sky-400 dark:hover:text-sky-300 transition-colors duration-200 block">
                         LapaqPay
                     </a>
@@ -1012,7 +1017,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                 </div>
 
                 <div class="mt-5 flex flex-col gap-2">
-                    <a href="https://lapaqpay.netlify.app" target="_blank" rel="noopener noreferrer"
+                    <a href="https://lapaqpay.vercel.app" target="_blank" rel="noopener noreferrer"
                         class="project-link project-link-sky inline-flex items-center gap-1.5 text-sm font-medium hover:gap-3 transition-[gap] duration-200">
                         Lihat Project <span aria-hidden="true">→</span>
                     </a>
@@ -1029,7 +1034,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
         <div
             class="web-card group overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow border border-orange-100 dark:border-gray-700">
 
-            <a href="https://cv-mfze.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
+            <a href="https://pizzanusantara.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
                     <img src="thumbnail/pizza.webp" alt="Thumbnail Pizza Nusantara – website kuliner branding lokal dengan tampilan visual modern"
                       loading="eager" width="600" height="192"
@@ -1041,7 +1046,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
             <div class="p-5 flex flex-col justify-between min-h-[220px]">
 
                 <div>
-                    <a href="https://cv-mfze.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://pizzanusantara.vercel.app/" target="_blank" rel="noopener noreferrer"
                        class="font-semibold text-lg mb-2 text-orange-600 dark:text-orange-400 hover:text-orange-400 dark:hover:text-orange-300 transition-colors duration-200 block">
                         Pizza Nusantara
                     </a>
@@ -1052,7 +1057,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                 </div>
 
                 <div class="mt-5 flex flex-col gap-2">
-                    <a href="https://cv-mfze.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://pizzanusantara.vercel.app/" target="_blank" rel="noopener noreferrer"
                         class="project-link project-link-orange inline-flex items-center gap-1.5 text-sm font-medium hover:gap-3 transition-[gap] duration-200">
                         Lihat Project <span aria-hidden="true">→</span>
                     </a>
@@ -1069,7 +1074,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
         <div
             class="web-card group overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow border border-violet-100 dark:border-gray-700">
 
-            <a href="https://tugaswebdkv.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
+            <a href="https://dkvnesta.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
                     <img src="thumbnail/dkvnesta.webp" alt="Thumbnail Website DKV SMKN 1 Tangerang – website desain komunikasi visual dengan layout modern"
                          loading="eager" width="600" height="192"
@@ -1081,7 +1086,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
             <div class="p-5 flex flex-col justify-between min-h-[220px]">
 
                 <div>
-                    <a href="https://tugaswebdkv.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://dkvnesta.vercel.app/" target="_blank" rel="noopener noreferrer"
                        class="font-semibold text-lg mb-2 text-violet-600 dark:text-violet-400 hover:text-violet-400 dark:hover:text-violet-300 transition-colors duration-200 block">
                         Website DKV SMKN 1 Tangerang
                     </a>
@@ -1092,7 +1097,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
                 </div>
 
                 <div class="mt-5 flex flex-col gap-2">
-                    <a href="https://tugaswebdkv.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://dkvnesta.vercel.app/" target="_blank" rel="noopener noreferrer"
                         class="project-link project-link-violet inline-flex items-center gap-1.5 text-sm font-medium hover:gap-3 transition-[gap] duration-200">
                         Lihat Project <span aria-hidden="true">→</span>
                     </a>
@@ -1177,9 +1182,9 @@ html.dark #progressCircle { stroke: #3b82f6; }
     .dkv-card {
         transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
                     box-shadow 0.35s ease;
-        will-change: transform;
     }
     .dkv-card:hover {
+        will-change: transform;
         transform: translateY(-6px);
         box-shadow: 0 20px 40px -12px rgba(0,0,0,0.18);
     }
@@ -1489,7 +1494,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
 
 <div id="modal-graphic"
-    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden touch-manipulation"
+    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/70 overflow-hidden touch-manipulation"
     onclick="handleBackdrop(event, 'graphic')">
 
     <div
@@ -1687,7 +1692,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
     
      
 <div id="modal-3d"
-    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden touch-manipulation"
+    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/70 overflow-hidden touch-manipulation"
     onclick="handleBackdrop(event, '3d')">
 
     <div
@@ -2066,7 +2071,7 @@ html.dark #progressCircle { stroke: #3b82f6; }
 
     
 <div id="modal-video"
-    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-hidden touch-manipulation"
+    class="fixed inset-0 z-50 items-center justify-center p-3 sm:p-4 bg-black/70 overflow-hidden touch-manipulation"
     onclick="handleBackdrop(event, 'video')">
 
     <div
@@ -2534,11 +2539,6 @@ function loadYouTubeFacade(facadeId, videoId) {
     });
 
     
-    var preloadAfter  = new Image();
-    var preloadBefore = new Image();
-    preloadAfter.src  = 'dkv/editor/after.avif';
-    preloadBefore.src = 'dkv/editor/before.avif';
-
 function initColorGradeSkeleton() {
     var skeleton  = document.getElementById('color-grade-skeleton');
     var afterImg  = document.getElementById('color-grade-after');
@@ -2597,6 +2597,10 @@ function initColorGradeSkeleton() {
                     (modalVideo.style.display === 'flex' ||
                      modalVideo.style.display === 'block')) {
                     initialized = true;
+                    var preloadAfter  = new Image();
+                    var preloadBefore = new Image();
+                    preloadAfter.src  = 'dkv/editor/after.avif';
+                    preloadBefore.src = 'dkv/editor/before.avif';
                     setTimeout(initColorGradeSkeleton, 30);
                 }
             });

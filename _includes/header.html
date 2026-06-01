@@ -72,35 +72,32 @@
 </header>
 
 <script>
-    const menuBtn = document.getElementById("menuBtn");
+    document.addEventListener('DOMContentLoaded', function () {
+        var menuBtn = document.getElementById("menuBtn");
+        if (!menuBtn) return;
 
-    menuBtn.addEventListener("click", () => {
-        menuBtn.classList.toggle("active");
-        const isActive = menuBtn.classList.contains("active");
-        menuBtn.setAttribute("aria-expanded", isActive ? "true" : "false");
-        menuBtn.setAttribute("aria-label", isActive ? "Tutup menu navigasi" : "Buka menu navigasi");
+        menuBtn.addEventListener("click", function () {
+            menuBtn.classList.toggle("active");
+            var isActive = menuBtn.classList.contains("active");
+            menuBtn.setAttribute("aria-expanded", isActive ? "true" : "false");
+            menuBtn.setAttribute("aria-label", isActive ? "Tutup menu navigasi" : "Buka menu navigasi");
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 768) {
+                var mobileMenu = document.getElementById('mobileMenu');
+                var headerBg = document.getElementById('headerBg');
+
+                menuBtn.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+
+                if (mobileMenu && headerBg) {
+                    mobileMenu.classList.remove('is-open');
+                    headerBg.style.height = '100%';
+                }
+            }
+        });
     });
-
-    window.addEventListener('resize', function() {
-   
-    if (window.innerWidth >= 768) {
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const headerBg = document.getElementById('headerBg');
-
-       
-        if (menuBtn) {
-            menuBtn.classList.remove('active');
-            menuBtn.setAttribute('aria-expanded', 'false');
-        }
-
-      
-        if (mobileMenu && headerBg) {
-            mobileMenu.classList.remove('is-open');
-            headerBg.style.height = '100%';
-        }
-    }
-});
 </script>
 
 <style>

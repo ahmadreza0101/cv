@@ -6,6 +6,16 @@ window.addEventListener('beforeunload', function () {
     sessionStorage.setItem('scrollY', window.scrollY);
 });
 
+window.addEventListener('load', function () {
+    var savedY = sessionStorage.getItem('scrollY');
+    if (savedY) {
+        window.scrollTo({ top: parseInt(savedY, 10), behavior: 'instant' });
+        sessionStorage.removeItem('scrollY');
+    }
+});
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     var savedY = sessionStorage.getItem('scrollY');
     if (savedY === null) return;
