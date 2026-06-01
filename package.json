@@ -22,7 +22,6 @@
     "@iconify-json/simple-icons": "^1.2.84",
     "baseline-browser-mapping": "^2.10.31",
     "browserslist": "^4.28.2",
-    "build": "^0.1.4",
     "caniuse-lite": "^1.0.30001793",
     "electron-to-chromium": "^1.5.361",
     "escalade": "^3.2.0",
@@ -35,10 +34,9 @@
     "update-browserslist-db": "^1.2.3"
   },
   "scripts": {
-  "build": "npx @tailwindcss/cli -i ./input.css -o ./dist/output.css && npx @11ty/eleventy && node critical.mjs",
-  "dev": "concurrently \"npx @tailwindcss/cli -i ./input.css -o ./dist/output.css --watch\" \"npx @11ty/eleventy --serve\""
-
-    
+    "build": "npx @tailwindcss/cli -i ./input.css -o ./dist/output.css && npx @11ty/eleventy && node critical.mjs",
+    "build:vercel": "npx @tailwindcss/cli -i ./input.css -o ./dist/output.css && npx @11ty/eleventy",
+    "dev": "concurrently \"npx @tailwindcss/cli -i ./input.css -o ./dist/output.css --watch\" \"npx @11ty/eleventy --serve\""
   },
   "keywords": [],
   "author": "",
