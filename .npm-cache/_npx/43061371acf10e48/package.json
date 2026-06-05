@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.0"
+  },
+  "_npx": {
+    "packages": [
+      "@tailwindcss/cli"
+    ]
+  }
+}

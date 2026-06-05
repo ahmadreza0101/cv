@@ -1,0 +1,19 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.13.0
+2 info using node@v26.2.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:D:\savean_tugas\vscode\cv\.npmrc
+5 silly config load:file:C:\Users\Hype\.npmrc
+6 silly config load:file:C:\Users\Hype\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm exec @11ty/eleventy
+8 verbose argv "exec" "--" "@11ty/eleventy"
+9 verbose logfile logs-max:10 dir:D:\savean_tugas\vscode\cv\.npm-cache\_logs\2026-06-05T08_19_32_298Z-
+10 verbose logfile D:\savean_tugas\vscode\cv\.npm-cache\_logs\2026-06-05T08_19_32_298Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4395630592 maxSize:1098907648 maxEntrySize:549453824
+13 verbose cwd D:\savean_tugas\vscode\cv
+14 verbose os Windows_NT 10.0.26200
+15 verbose node v26.2.0
+16 verbose npm  v11.13.0
+17 verbose exit 1
+18 verbose code 1

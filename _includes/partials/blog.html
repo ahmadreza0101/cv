@@ -79,10 +79,92 @@
             class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide px-1"
             style="height: 372px; overflow-y: hidden; align-items: stretch;">
 
-            <div class="flex items-center justify-center text-gray-500 dark:text-gray-400"
-                style="min-width: 100%; height: 372px;">
-                Memuat artikel...
-            </div>
+            <!-- Skeleton statis: di-render langsung oleh browser, CLS = 0 -->
+            <article class="blog-skeleton min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0 animate-pulse" aria-hidden="true">
+                <div class="w-full h-40 bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div class="h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-4/5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col gap-2 mt-1">
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-3/4 bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                    </div>
+                    <div class="mt-auto h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                </div>
+            </article>
+            <article class="blog-skeleton min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0 animate-pulse" aria-hidden="true">
+                <div class="w-full h-40 bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div class="h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-4/5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col gap-2 mt-1">
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-3/4 bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                    </div>
+                    <div class="mt-auto h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                </div>
+            </article>
+            <article class="blog-skeleton min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0 animate-pulse" aria-hidden="true">
+                <div class="w-full h-40 bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div class="h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-4/5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col gap-2 mt-1">
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-3/4 bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                    </div>
+                    <div class="mt-auto h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                </div>
+            </article>
+            <article class="blog-skeleton min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0 animate-pulse" aria-hidden="true">
+                <div class="w-full h-40 bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div class="h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-4/5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col gap-2 mt-1">
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-3/4 bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                    </div>
+                    <div class="mt-auto h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                </div>
+            </article>
+            <article class="blog-skeleton min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0 animate-pulse" aria-hidden="true">
+                <div class="w-full h-40 bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div class="h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-4/5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col gap-2 mt-1">
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-3/4 bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                    </div>
+                    <div class="mt-auto h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                </div>
+            </article>
+            <article class="blog-skeleton min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0 animate-pulse" aria-hidden="true">
+                <div class="w-full h-40 bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div class="h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="h-4 w-4/5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col gap-2 mt-1">
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                        <div class="h-3 w-3/4 bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
+                    </div>
+                    <div class="mt-auto h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                </div>
+            </article>
+
         </div>
 
     </div>
@@ -109,139 +191,14 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-
+(function () {
+    // ─── Konstanta ────────────────────────────────────────────────────────────
     var CACHE_KEY  = 'blogCache_posts';
     var CACHE_TIME = 'blogCache_time';
-    var CACHE_TTL  = 60 * 60 * 1000;
+    var CACHE_TTL  = 60 * 60 * 1000; // 1 jam
 
-    var container = document.getElementById('blogSlider');
-
-    function showSkeleton() {
-        var html = '';
-        for (var i = 0; i < 6; i++) {
-            html += `
-            <article class="min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0 animate-pulse">
-                <div class="w-full h-40 bg-gray-200 dark:bg-gray-700"></div>
-                <div class="p-5 flex flex-col flex-1 gap-3">
-                    <div class="h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-                    <div class="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-                    <div class="h-4 w-4/5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-                    <div class="flex flex-col gap-2 mt-1">
-                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
-                        <div class="h-3 w-full bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
-                        <div class="h-3 w-3/4 bg-gray-100 dark:bg-gray-700/60 rounded-full"></div>
-                    </div>
-                    <div class="mt-auto h-3 w-24 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-                </div>
-            </article>`;
-        }
-        container.innerHTML = html;
-    }
-
-    function buildCards(posts) {
-        var html = '';
-        posts.forEach(function (post) {
-            var title = post.title.$t;
-            var link = post.link.find(function (l) { return l.rel === 'alternate'; }).href;
-            var date = new Date(post.published.$t).toLocaleDateString('id-ID', {
-                day: 'numeric', month: 'short', year: 'numeric'
-            });
-            var thumbnail = 'https://picsum.photos/600/400';
-            if (post.media$thumbnail) {
-                thumbnail = post.media$thumbnail.url.replace('/s72-c/', '/w1200-h630-p-k-no-nu/');
-            }
-            var rawContent = post.summary?.$t || post.content?.$t || '';
-            var cleanContent = rawContent.replace(/<[^>]+>/g, '').trim();
-            var excerpt = cleanContent.length > 140
-                ? cleanContent.substring(0, 140) + '...'
-                : cleanContent || 'Klik untuk membaca artikel selengkapnya.';
-
-            html += `
-            <article class="blog-card min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start group overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0">
-                <a href="${link}" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
-                    <img src="${thumbnail}" alt="Thumbnail artikel: ${title}" loading="lazy" decoding="async" width="270" height="160" class="card-img w-full h-40 object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                </a>
-                <div class="p-5 flex flex-col flex-1">
-                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mb-3">${date}</div>
-                    <a href="${link}" target="_blank" rel="noopener noreferrer"
-                       class="text-sm font-bold leading-snug text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-[#25a5be] transition-colors duration-200 block" style="height: 2.5rem; overflow: hidden;">
-                        ${title}
-                    </a>
-                    <p class="text-xs leading-relaxed text-gray-600 dark:text-gray-400 line-clamp-3 mb-5" style="height: 3.75rem; overflow: hidden;">
-                        ${excerpt}
-                    </p>
-                    <div class="mt-auto">
-                        <a href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Baca artikel: ${title}" class="inline-flex items-center gap-2 text-[#25a5be] font-semibold text-xs hover:gap-3 transition-[gap] duration-200">
-                            Baca Artikel <span aria-hidden="true">\u2192</span>
-                        </a>
-                    </div>
-                </div>
-            </article>`;
-        });
-        return html;
-    }
-
-    function restoreScrollPosition() {
-        var saved = sessionStorage.getItem('blogSliderScroll');
-        if (!saved) return;
-        var pos = parseInt(saved);
-        if (!pos) return;
-        var el = document.getElementById('blogSlider');
-        el.style.scrollBehavior = 'auto';
-        el.scrollLeft = pos;
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-                el.scrollLeft = pos;
-            });
-        });
-        setTimeout(function () {
-            el.scrollLeft = pos;
-            el.style.scrollBehavior = '';
-        }, 150);
-    }
-
-    function renderPosts(posts) {
-        container.innerHTML = buildCards(posts);
-        restoreScrollPosition();
-    }
-
-    window.loadBloggerPosts = function (data) {
-        var posts = data.feed.entry.slice(0, 6);
-        try {
-            localStorage.setItem(CACHE_KEY, JSON.stringify(posts));
-            localStorage.setItem(CACHE_TIME, Date.now().toString());
-        } catch(e) {}
-        renderPosts(posts);
-    };
-
-    function fetchFromAPI() {
-        var script = document.createElement('script');
-        script.src = 'https://www.azayaka.my.id/feeds/posts/default?alt=json-in-script&callback=loadBloggerPosts';
-        document.body.appendChild(script);
-    }
-
-    (function init() {
-        var cacheHit = false;
-        try {
-            var cached   = localStorage.getItem(CACHE_KEY);
-            var cachedAt = localStorage.getItem(CACHE_TIME);
-            var isValid  = cachedAt && (Date.now() - parseInt(cachedAt)) < CACHE_TTL;
-            if (cached && isValid) {
-                renderPosts(JSON.parse(cached));
-                cacheHit = true;
-            }
-        } catch(e) {}
-        if (!cacheHit) showSkeleton();
-
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(fetchFromAPI, { timeout: 2000 });
-        } else {
-            setTimeout(fetchFromAPI, 200);
-        }
-    })();
-
+    // ─── Pasang event slider (tombol nav + simpan scroll) ─────────────────────
+    // Dipasang segera, tidak perlu tunggu konten selesai dimuat.
     var slider  = document.getElementById('blogSlider');
     var nextBtn = document.getElementById('nextBtn');
     var prevBtn = document.getElementById('prevBtn');
@@ -258,5 +215,126 @@
         slider.scrollBy({ left: -320, behavior: 'smooth' });
     });
 
-    });
+    // ─── Helper ───────────────────────────────────────────────────────────────
+    function buildCards(posts) {
+        var html = '';
+        posts.forEach(function (post) {
+            var title = post.title.$t;
+            var link  = post.link.find(function (l) { return l.rel === 'alternate'; }).href;
+            var date  = new Date(post.published.$t).toLocaleDateString('id-ID', {
+                day: 'numeric', month: 'short', year: 'numeric'
+            });
+            var thumbnail = 'https://picsum.photos/600/400';
+            if (post.media$thumbnail) {
+                thumbnail = post.media$thumbnail.url.replace('/s72-c/', '/w1200-h630-p-k-no-nu/');
+            }
+            var rawContent  = post.summary?.$t || post.content?.$t || '';
+            var cleanContent = rawContent.replace(/<[^>]+>/g, '').trim();
+            var excerpt = cleanContent.length > 140
+                ? cleanContent.substring(0, 140) + '...'
+                : cleanContent || 'Klik untuk membaca artikel selengkapnya.';
+
+            // Escape karakter berbahaya di title untuk atribut HTML
+            var safeTitle = title.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            html += `
+            <article class="blog-card min-w-[250px] md:min-w-[270px] max-w-[270px] h-[372px] snap-start group overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex flex-col flex-shrink-0">
+                <a href="${link}" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden" tabindex="-1" aria-hidden="true">
+                    <img src="${thumbnail}" alt="" loading="lazy" decoding="async" width="270" height="160" class="card-img w-full h-40 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </a>
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mb-3">${date}</div>
+                    <a href="${link}" target="_blank" rel="noopener noreferrer"
+                       class="text-sm font-bold leading-snug text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-[#25a5be] transition-colors duration-200 block" style="height: 2.5rem; overflow: hidden;">
+                        ${safeTitle}
+                    </a>
+                    <p class="text-xs leading-relaxed text-gray-600 dark:text-gray-400 line-clamp-3 mb-5" style="height: 3.75rem; overflow: hidden;">
+                        ${excerpt}
+                    </p>
+                    <div class="mt-auto">
+                        <a href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Baca artikel: ${safeTitle}" class="inline-flex items-center gap-2 text-[#25a5be] font-semibold text-xs hover:gap-3 transition-[gap] duration-200">
+                            Baca Artikel <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </div>
+            </article>`;
+        });
+        return html;
+    }
+
+    function restoreScrollPosition() {
+        var saved = sessionStorage.getItem('blogSliderScroll');
+        if (!saved) return;
+        var pos = parseInt(saved, 10);
+        if (!pos) return;
+        var el = document.getElementById('blogSlider');
+        el.style.scrollBehavior = 'auto';
+        el.scrollLeft = pos;
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                el.scrollLeft = pos;
+                el.style.scrollBehavior = '';
+            });
+        });
+    }
+
+    function renderPosts(posts) {
+        var container = document.getElementById('blogSlider');
+        container.innerHTML = buildCards(posts);
+        restoreScrollPosition();
+    }
+
+   
+    window.loadBloggerPosts = function (data) {
+        if (!data || !data.feed || !data.feed.entry) return;
+        var posts = data.feed.entry.slice(0, 6);
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify(posts));
+            localStorage.setItem(CACHE_TIME, Date.now().toString());
+        } catch (e) {}
+        renderPosts(posts);
+    };
+
+   
+    function fetchFromAPI() {
+        var s = document.createElement('script');
+        s.src = 'https://www.azayaka.my.id/feeds/posts/default?alt=json-in-script&callback=loadBloggerPosts';
+        s.async = true;
+        document.body.appendChild(s);
+    }
+
+  
+    (function init() {
+        var cacheHit = false;
+        try {
+            var cached   = localStorage.getItem(CACHE_KEY);
+            var cachedAt = localStorage.getItem(CACHE_TIME);
+            var age      = cachedAt ? Date.now() - parseInt(cachedAt, 10) : Infinity;
+            if (cached) {
+                renderPosts(JSON.parse(cached));
+              
+                if (age < CACHE_TTL) { cacheHit = true; }
+            }
+        } catch (e) {}
+
+        if (cacheHit) return;
+
+      
+        function scheduleFetch() {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(fetchFromAPI, { timeout: 3000 });
+            } else {
+                setTimeout(fetchFromAPI, 500);
+            }
+        }
+
+        if (document.readyState === 'complete') {
+            scheduleFetch();
+        } else {
+            window.addEventListener('load', scheduleFetch, { once: true });
+        }
+    })();
+
+}());
 </script>

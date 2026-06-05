@@ -76,13 +76,6 @@
         var menuBtn = document.getElementById("menuBtn");
         if (!menuBtn) return;
 
-        menuBtn.addEventListener("click", function () {
-            menuBtn.classList.toggle("active");
-            var isActive = menuBtn.classList.contains("active");
-            menuBtn.setAttribute("aria-expanded", isActive ? "true" : "false");
-            menuBtn.setAttribute("aria-label", isActive ? "Tutup menu navigasi" : "Buka menu navigasi");
-        });
-
         window.addEventListener('resize', function () {
             if (window.innerWidth >= 768) {
                 var mobileMenu = document.getElementById('mobileMenu');
@@ -210,5 +203,30 @@
     .mobile-nav-link:active::before {
         height: 60%;
         opacity: 1;
+    }
+
+    #mobileMenu {
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-4px);
+        transition:
+            grid-template-rows 0.3s ease-in-out,
+            opacity 0.15s ease-out,
+            transform 0.15s ease-out,
+            visibility 0s linear 0.15s;
+    }
+
+    html.page-loaded #mobileMenu {
+        transition:
+            grid-template-rows 0.3s ease-in-out,
+            opacity 0.15s ease-out,
+            transform 0.15s ease-out,
+            visibility 0s linear 0s;
+    }
+
+    #mobileMenu.is-open {
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
     }
 </style>
