@@ -24,20 +24,44 @@
                 document.documentElement.classList.add('dark');
             }
         })();
-
-       
+        
         (function () {
-            if (sessionStorage.getItem('scrollY') !== null) {
-                document.documentElement.style.visibility = 'hidden';
+            function setPageLoaded() {
+                document.documentElement.classList.add('page-loaded');
+            }
+            if (document.readyState === 'complete') {
+                setPageLoaded();
+            } else {
+                window.addEventListener('load', setPageLoaded);
+                document.addEventListener('DOMContentLoaded', setPageLoaded);
             }
         })();
+
+    
     </script>
 
   
     <style>
         html { background-color: #f9fafb; } 
         html.dark { background-color: #111827; } 
+        html:not(.page-loaded) body {
+            opacity: 0;
+            visibility: hidden;
+        }
+        html.page-loaded body {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
+
+    <noscript>
+        <style>
+            html body {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        </style>
+    </noscript>
 
    
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/dist/files/inter-latin-400-normal.woff2">

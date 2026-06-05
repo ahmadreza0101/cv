@@ -1,16 +1,23 @@
-<section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+<section class="section-shell section-shell-sm max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
 
     <div class="relative flex justify-center">
        
         <div class="absolute w-44 md:w-60 h-64 md:h-80 bg-indigo-200 dark:bg-indigo-900 rounded-2xl blur-3xl opacity-40"></div>
 
         <div class="relative flex justify-center w-44 md:w-60 aspect-[3/4] bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden">
-            <img src="foto_profil.webp" 
-                 alt="Foto Profil Reza Ahmad Al Ghifari" 
-                 width="600" 
-                 height="800" 
-                 fetchpriority="high"
-                 class="relative w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white dark:border-gray-800 transition-opacity duration-300">
+            <picture class="block w-full h-full">
+                <source
+                    type="image/webp"
+                    srcset="foto_profil-210.webp 210w, foto_profil-420.webp 420w, foto_profil-630.webp 630w"
+                    sizes="(max-width: 767px) 176px, 240px">
+                <img src="foto_profil-420.webp"
+                     alt="Foto Profil Reza Ahmad Al Ghifari"
+                     width="600"
+                     height="800"
+                     fetchpriority="high"
+                     decoding="sync"
+                     class="eager-image relative w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white dark:border-gray-800">
+            </picture>
         </div>
     </div>
 
@@ -73,7 +80,7 @@
 </section>
 
 
-    <section id="about" class="max-w-5xl mx-auto px-6 py-12">
+    <section id="about" class="section-shell section-shell-sm max-w-5xl mx-auto px-6 py-12">
 
         <div class="text-center mb-8">
             <h2 class="text-2xl font-semibold">

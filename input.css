@@ -8,5 +8,13 @@
 @import "./node_modules/@fontsource/poppins/600.css";
 @import "./node_modules/@fontsource/poppins/700.css";
 
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+}
 
 @variant dark (&:where(.dark, .dark *));

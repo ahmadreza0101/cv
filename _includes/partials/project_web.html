@@ -1,4 +1,4 @@
-<section id="projects" class="max-w-6xl mx-auto px-6 py-12">
+<section id="projects" class="section-shell section-shell-lg max-w-6xl mx-auto px-6 py-12">
 
     <div class="flex items-center justify-between flex-wrap gap-6 mb-12">
     <div class="relative">
@@ -35,15 +35,14 @@
         .web-card {
             transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
                         box-shadow 0.35s ease;
-            will-change: transform;
         }
         .web-card:hover {
+            will-change: transform;
             transform: translateY(-6px);
             box-shadow: 0 20px 40px -12px rgba(0,0,0,0.18);
         }
         .web-card .card-img {
             transition: transform 0.5s ease;
-            will-change: transform;
         }
         .web-card:hover .card-img {
             transform: scale(1.06);
@@ -113,7 +112,7 @@
             <img
                 src="thumbnail/azayakaachive.webp"
                 alt="Thumbnail Azayaka Archive – web pencatat media film dan novel dengan Laravel dan Supabase"
-                 loading="eager" width="600" height="192"
+                 loading="eager" decoding="sync" fetchpriority="high" width="600" height="192"
                 class="card-img">
         </div>
         <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-indigo-500 text-white font-semibold shadow">Dynamic</div>
@@ -155,7 +154,7 @@
             <div class="relative overflow-hidden">
                 <div class="img-wrap">
                     <img src="thumbnail/project.webp" alt="Thumbnail Berita AI – website berita otomatis berbasis AI dengan Django"
-                        loading="eager" width="600" height="192"
+                        loading="eager" decoding="sync" width="600" height="192"
                         class="card-img">
                 </div>
                 <div
@@ -196,7 +195,7 @@
             <div class="relative overflow-hidden">
                 <div class="img-wrap">
                     <img src="thumbnail/project.webp" alt="Thumbnail Catatan Rahasia – web catatan pribadi aman dengan Next.js dan Supabase"
-                         loading="eager" width="600" height="192"
+                         loading="eager" decoding="sync" width="600" height="192"
                         class="card-img">
                 </div>
                 <div
@@ -237,7 +236,7 @@
             <a href="https://lapaqpay.vercel.app" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
                     <img src="thumbnail/lapaqpay.webp" alt="Thumbnail LapaqPay – website pencatatan transaksi serverless dengan UI modern"
-                         loading="eager" width="600" height="192"
+                         loading="eager" decoding="sync" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-sky-500 text-white font-semibold shadow">Serverless</div>
@@ -277,7 +276,7 @@
             <a href="https://pizzanusantara.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
                     <img src="thumbnail/pizza.webp" alt="Thumbnail Pizza Nusantara – website kuliner branding lokal dengan tampilan visual modern"
-                      loading="eager" width="600" height="192"
+                      loading="eager" decoding="sync" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-orange-500 text-white font-semibold shadow">Static</div>
@@ -317,7 +316,7 @@
             <a href="https://dkvnesta.vercel.app/" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
                 <div class="img-wrap">
                     <img src="thumbnail/dkvnesta.webp" alt="Thumbnail Website DKV SMKN 1 Tangerang – website desain komunikasi visual dengan layout modern"
-                         loading="eager" width="600" height="192"
+                         loading="eager" decoding="sync" width="600" height="192"
                         class="card-img">
                 </div>
                 <div class="absolute top-3 right-3 text-[10px] px-3 py-1 rounded-full bg-violet-500 text-white font-semibold shadow">Static</div>

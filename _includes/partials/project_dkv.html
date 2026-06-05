@@ -1,4 +1,4 @@
-<section id="multimedia-projects" class="max-w-6xl mx-auto px-6 py-12">
+<section id="multimedia-projects" class="section-shell section-shell-lg max-w-6xl mx-auto px-6 py-12">
 
 
     <div class="flex items-center justify-between flex-wrap gap-6 mb-12">
@@ -112,7 +112,7 @@
            <div class="card-img-wrap relative h-48 shrink-0 overflow-hidden">
     <img src="dkv/cupcake.webp"
         alt="Thumbnail project Desain Grafis – poster, branding, dan ilustrasi vector"
-        loading="eager" fetchpriority="high"
+        loading="eager" fetchpriority="high" decoding="sync"
         width="600"
         height="192"
         class="card-img w-full h-full object-cover absolute inset-0">
@@ -183,7 +183,7 @@
             <div class="card-img-wrap relative h-48 shrink-0 overflow-hidden">
     <img src="dkv/dam.webp"
         alt="Thumbnail project 3D Modelling – environment, arsitektur, dan hard surface di Blender"
-        loading="eager"
+        loading="eager" decoding="sync"
         width="600"
         height="192"
         class="card-img w-full h-full object-cover absolute inset-0">
@@ -277,7 +277,7 @@
            <div class="card-img-wrap relative h-48 shrink-0 overflow-hidden">
     <img src="dkv/blender.webp"
         alt="Thumbnail project Video & Foto Editing – cinematic, color grading, dan motion graphic"
-        loading="eager"
+        loading="eager" decoding="sync"
         width="600"
         height="192"
         class="card-img w-full h-full object-cover absolute inset-0">
@@ -1031,13 +1031,13 @@
             
             <img src="dkv/editor/after.avif"
                 alt="Hasil After – foto setelah color grading cinematic"
-                loading="eager"
+                loading="lazy" decoding="async"
                 id="color-grade-after"
                 class="absolute inset-0 w-full h-full object-cover pointer-events-none color-grade-img z-1">
 
             <img src="dkv/editor/before.avif"
                 alt="Hasil Before – foto asli sebelum color grading"
-                loading="eager"
+                loading="lazy" decoding="async"
                 id="before-img-target"
                 class="absolute inset-0 w-full h-full object-cover pointer-events-none color-grade-img z-10"
                 style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
@@ -1104,7 +1104,7 @@
                 <img 
                     data-src="dkv/blender.png" src="" 
                     alt="Thumbnail video 3D Animation – animasi Blender untuk portofolio kreatif"
-                    loading="eager"
+                    loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover lazy-img"
                 />
                 <div class="absolute inset-0 flex items-center justify-center">
@@ -1309,6 +1309,39 @@
         animation: modalIn .25s ease;
     }
 
+    [id^="modal-"] .video-panel,
+    [id^="modal-"] .graphic-panel,
+    [id^="modal-"] .three-d-panel {
+        content-visibility: auto;
+        contain-intrinsic-size: 900px;
+    }
+
+    @media (max-width: 640px) {
+        [id^="modal-"] {
+            padding: 0 !important;
+        }
+
+        [id^="modal-"] > div {
+            width: 100% !important;
+            max-width: 100% !important;
+            max-height: 100dvh !important;
+            border-radius: 1.25rem 1.25rem 0 0 !important;
+        }
+
+        [id^="modal-"] .modal-content-area {
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+        }
+
+        [id^="modal-"] .animate-modalIn {
+            animation: none;
+        }
+
+        [id^="modal-"] img {
+            transform: translateZ(0);
+        }
+    }
+
 </style>
 
 
@@ -1375,21 +1408,6 @@ function loadYouTubeFacade(facadeId, videoId) {
 }
 
 (function () {
-
-
-    function markLoaded(img) {
-        requestAnimationFrame(function () {
-            img.classList.add('img-loaded');
-            var skeleton = img.parentElement;
-            if (skeleton && skeleton.classList.contains('img-skeleton')) {
-                skeleton.classList.add('skeleton-done');
-                setTimeout(function () {
-                    skeleton.classList.remove('img-skeleton', 'skeleton-done');
-                }, 450);
-            }
-        });
-    }
-
     function loadModalImages(modal) {
         modal.querySelectorAll('img.lazy-img[data-src]').forEach(function (img) {
             var resolvedSrc = img.getAttribute('data-src');
@@ -1398,16 +1416,7 @@ function loadYouTubeFacade(facadeId, videoId) {
                               currentSrc !== window.location.href &&
                               !currentSrc.endsWith('/') &&
                               currentSrc !== '';
-            if (alreadySet) {
-                if (img.complete && img.naturalWidth > 0) markLoaded(img);
-                else {
-                    img.addEventListener('load',  function () { markLoaded(img); }, { once: true });
-                    img.addEventListener('error', function () { markLoaded(img); }, { once: true });
-                }
-                return;
-            }
-            img.addEventListener('load',  function () { markLoaded(img); }, { once: true });
-            img.addEventListener('error', function () { markLoaded(img); }, { once: true });
+            if (alreadySet) return;
             img.setAttribute('src', resolvedSrc);
         });
     }
@@ -1424,56 +1433,6 @@ function loadYouTubeFacade(facadeId, videoId) {
         obs.observe(modal, { attributes: true, attributeFilter: ['style'] });
     });
 
-    
-function initColorGradeSkeleton() {
-    var skeleton  = document.getElementById('color-grade-skeleton');
-    var afterImg  = document.getElementById('color-grade-after');
-    var beforeImg = document.getElementById('before-img-target');
-    if (!skeleton || !afterImg || !beforeImg) return;
-    if (skeleton.style.display === 'none') return;
-
-    var loadedCount = 0;
-
-    function onOneLoaded() {
-        loadedCount++;
-        if (loadedCount >= 2) {
- 
-            requestAnimationFrame(function () {
-                requestAnimationFrame(function () {
-                    afterImg.classList.add('img-loaded');
-                    beforeImg.classList.add('img-loaded');
-
-                    
-                    skeleton.classList.add('skeleton-done');
-                    setTimeout(function () {
-                        skeleton.style.display = 'none';
-                    }, 600); 
-                });
-            });
-        }
-    }
-
-    function checkImg(img) {
-      
-        var src = img.getAttribute('src');
-        if (!img.complete || img.naturalWidth === 0) {
-            img.addEventListener('load',  onOneLoaded, { once: true });
-            img.addEventListener('error', onOneLoaded, { once: true });
-        } else {
-       
-            if ('decode' in img) {
-                img.decode().then(onOneLoaded).catch(onOneLoaded);
-            } else {
-                onOneLoaded();
-            }
-        }
-    }
-
-    checkImg(afterImg);
-    checkImg(beforeImg);
-}
-
-
     var modalVideo  = document.getElementById('modal-video');
     if (modalVideo) {
         var initialized = false;
@@ -1483,11 +1442,6 @@ function initColorGradeSkeleton() {
                     (modalVideo.style.display === 'flex' ||
                      modalVideo.style.display === 'block')) {
                     initialized = true;
-                    var preloadAfter  = new Image();
-                    var preloadBefore = new Image();
-                    preloadAfter.src  = 'dkv/editor/after.avif';
-                    preloadBefore.src = 'dkv/editor/before.avif';
-                    setTimeout(initColorGradeSkeleton, 30);
                 }
             });
         }).observe(modalVideo, { attributes: true, attributeFilter: ['style'] });

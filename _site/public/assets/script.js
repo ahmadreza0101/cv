@@ -1,46 +1,6 @@
 if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
+    history.scrollRestoration = 'auto';
 }
-
-window.addEventListener('beforeunload', function () {
-    sessionStorage.setItem('scrollY', window.scrollY);
-});
-
-window.addEventListener('load', function () {
-    var savedY = sessionStorage.getItem('scrollY');
-    if (savedY) {
-        window.scrollTo({ top: parseInt(savedY, 10), behavior: 'instant' });
-        sessionStorage.removeItem('scrollY');
-    }
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    var savedY = sessionStorage.getItem('scrollY');
-    if (savedY === null) return;
-
-    function restoreScroll() {
-        document.documentElement.style.scrollBehavior = 'auto';
-        window.scrollTo(0, parseInt(savedY, 10));
-        sessionStorage.removeItem('scrollY');
-      
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-                document.documentElement.style.visibility = '';
-                document.documentElement.style.scrollBehavior = '';
-            });
-        });
-    }
-
-    var heroImg = document.querySelector('.hero-img-container img');
-    if (heroImg && !heroImg.complete) {
-        heroImg.addEventListener('load',  restoreScroll, { once: true });
-        heroImg.addEventListener('error', restoreScroll, { once: true });
-    } else {
-        restoreScroll();
-    }
-});
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -108,46 +68,13 @@ if (toggleBtn) {
         if (img.closest('[id^="modal-"]')) return; 
         var src = img.getAttribute('data-src');
         if (!src) return;
-        var wrap = img.closest('.card-img-wrap');
-
-        function revealImg() {
-            requestAnimationFrame(function () {
-                requestAnimationFrame(function () {
-                    img.classList.add('img-loaded');
-                    if (wrap) {
-                        wrap.classList.add('skeleton-done');
-                        setTimeout(function () { wrap.classList.remove('skeleton-done'); }, 500);
-                    }
-                });
-            });
-        }
-
         img.setAttribute('src', src);
-
-        if (img.complete && img.naturalWidth > 0) {
-            revealImg();
-        } else {
-            img.addEventListener('load',  revealImg, { once: true });
-            img.addEventListener('error', revealImg, { once: true });
-        }
     });
 
   
-    document.querySelectorAll('.card-img-wrap img:not([data-src])').forEach(function (img) {
-        if (img.closest('[id^="modal-"]')) return; // ← jangan sentuh gambar dalam modal
-        var wrap = img.closest('.card-img-wrap');
-        if (!wrap) return;
-        function doneEager() {
-            wrap.classList.add('skeleton-done');
-            setTimeout(function () { wrap.classList.remove('skeleton-done'); }, 500);
-        }
-        if (img.complete && img.naturalWidth > 0) {
-            requestAnimationFrame(doneEager);
-        } else {
-            img.addEventListener('load',  doneEager, { once: true });
-            img.addEventListener('error', doneEager, { once: true });
-        }
-    });
+
+    // Remove eager image skeleton logic entirely
+
 
 
     const menuBtn = document.getElementById('menuBtn');
@@ -193,12 +120,6 @@ if (toggleBtn) {
         const modal = document.getElementById('modal-' + type);
         if (!modal) return;
 
-
-        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-        if (scrollbarWidth > 0) {
-            document.documentElement.style.paddingRight = scrollbarWidth + 'px';
-        }
-
         document.documentElement.classList.add('modal-open');
         modal.style.display = 'flex';
     };
@@ -211,7 +132,6 @@ if (toggleBtn) {
 
         modal.style.display = 'none';
         document.documentElement.classList.remove('modal-open');
-        document.documentElement.style.paddingRight = '';
     };
 
 
@@ -242,7 +162,6 @@ if (toggleBtn) {
                 });
 
             document.documentElement.classList.remove('modal-open');
-            document.documentElement.style.paddingRight = '';
         }
     });
 

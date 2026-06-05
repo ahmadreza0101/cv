@@ -4,6 +4,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("public");
   eleventyConfig.addPassthroughCopy("thumbnail");
   eleventyConfig.addPassthroughCopy("foto_profil.webp");
+  eleventyConfig.addPassthroughCopy("foto_profil-210.webp");
+  eleventyConfig.addPassthroughCopy("foto_profil-420.webp");
+  eleventyConfig.addPassthroughCopy("foto_profil-630.webp");
   eleventyConfig.addPassthroughCopy("dist");
   eleventyConfig.addPassthroughCopy("dkv");
 

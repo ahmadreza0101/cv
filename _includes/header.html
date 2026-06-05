@@ -1,6 +1,6 @@
 <header class="sticky top-0 z-50 relative">
     
-    <div id="headerBg" class="absolute top-0 left-0 w-full h-full bg-white/80 backdrop-blur dark:bg-gray-800/80 shadow -z-10" style="transition: height 0.3s ease-in-out;"></div>
+    <div id="headerBg" class="absolute top-0 left-0 w-full h-full bg-white/80 backdrop-blur dark:bg-gray-800/80 shadow -z-10"></div>
     
     <div class="relative max-w-6xl mx-auto flex justify-between items-center p-4">
        <h1 class="font-bold text-lg text-indigo-500">ahmadreza.cv</h1>
@@ -124,7 +124,8 @@
             rotate(-45deg);
     }
 
-    #menuBtn .menu-line {
+    /* Only allow transitions after page is loaded */
+    html.page-loaded #menuBtn .menu-line {
         transition:
             transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
             opacity 0.2s ease,
@@ -132,10 +133,13 @@
     }
 
  
+
     .nav-link {
         position: relative;
         color: inherit;
-      
+    }
+
+    html.page-loaded .nav-link {
         transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
 
@@ -143,7 +147,6 @@
     .nav-link:hover {
         color: rgb(99 102 241 / var(--tw-text-opacity, 1));
         -webkit-text-stroke: 0.3px rgb(99 102 241); 
-      
         transform: translateY(-2px); 
     }
 
@@ -156,6 +159,8 @@
         width: 0;
         height: 2px; 
         background-color: rgb(99 102 241);
+    }
+    html.page-loaded .nav-link::after {
         transition: width 0.3s ease-in-out;
     }
 
@@ -168,7 +173,9 @@
     .mobile-nav-link {
         position: relative;
         color: inherit;
+    }
 
+    html.page-loaded .mobile-nav-link {
         transition: color 0.3s ease, transform 0.3s ease;
     }
 
@@ -183,8 +190,10 @@
         height: 0;
         background-color: rgb(99 102 241);
         border-radius: 4px;
-        transition: height 0.3s ease, opacity 0.3s ease;
         opacity: 0;
+    }
+    html.page-loaded .mobile-nav-link::before {
+        transition: height 0.3s ease, opacity 0.3s ease;
     }
 
 
